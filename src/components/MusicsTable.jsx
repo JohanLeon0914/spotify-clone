@@ -28,8 +28,8 @@ const PlaylistTable = ({ songs, playlist }) => {
     setCurrentAudioTime,
   } = usePlayerStore((state) => state);
 
-  const isCurrentSongPlayed = (song_id) => {
-    return song_id === currentMusic.song?.id;
+  const isCurrentSongPlayed = (song) => {
+    return (song.id === currentMusic.song?.id) && (playlist.id === song.albumId.toString());
   };
 
   const playNextSongInThePlaylist = () => {
@@ -50,6 +50,11 @@ const PlaylistTable = ({ songs, playlist }) => {
       setIsSongEnded(false);
     }
   }, [isSongEnded])
+
+  const isPlayingSongOfThisPlaylist = (song) => {
+    console.log("entro")
+    return false;
+  }
 
   return (
     <table className="table-auto text-left min-w-full divide-y divide-gray-500/20">
@@ -81,8 +86,8 @@ const PlaylistTable = ({ songs, playlist }) => {
             key={index}
           >
             <td className="px-4 py-2 rounded-tl-lg rounded-bl-lg w-5">
-              {isCurrentSongPlayed(song.id) ? (
-                isPlayingSong ? (
+              {isCurrentSongPlayed(song) ? (
+                (isPlayingSong) ? (
                   <button className="card-play-button rounded-full bg-green-500 p-2">
                     <Pause />
                   </button>
