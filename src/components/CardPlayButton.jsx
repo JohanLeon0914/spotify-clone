@@ -1,14 +1,15 @@
-import { usePlayerStore } from "@/store/playerStore";
+import { usePlayerStore } from "../store/playerStore";
 import { Pause, Play } from "./Player";
 
-export function CardPlayButton({ id, size = "small" }) {
-  const { currentMusic, isPlaying, setIsPlaying, setCurrentMusic } =
+export function CardPlayButton({ id, size = "small", song_position = 0 }) {
+  const { currentMusic, isPlaying, setIsPlaying, setCurrentMusic, setIsPlayingSong } =
     usePlayerStore((state) => state);
   const isPlayingPlaylist = isPlaying && currentMusic?.playlist.id === id;
 
   const handleClick = () => {
     if (isPlaying) {
       setIsPlaying(false);
+      setIsPlayingSong(false);
       return;
     }
 
@@ -16,9 +17,10 @@ export function CardPlayButton({ id, size = "small" }) {
       .then((res) => res.json())
       .then((data) => {
         const { songs, playlist } = data;
-
+        
+        setIsPlayingSong(true);
         setIsPlaying(true);
-        setCurrentMusic({ songs, playlist, song: songs[0] });
+        setCurrentMusic({ songs, playlist, song: songs[song_position] });
       });
   };
 

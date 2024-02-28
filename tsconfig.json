@@ -1,7 +1,6 @@
 {
-  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": "D:/ASTRO/sporify-clone",
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "src/*"
@@ -18,5 +17,6 @@
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
-  }
+  },
+  "extends": "astro/tsconfigs/strict"
 }

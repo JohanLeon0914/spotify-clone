@@ -1,7 +1,6 @@
-import { usePlayerStore } from "@/store/playerStore";
+import { usePlayerStore } from "../store/playerStore";
 import { useEffect, useRef, useState } from "react";
 import { Slider } from "./Slider";
-
 
 export const Pause = ({ className }) => (
   <svg
@@ -167,7 +166,7 @@ const VolumeControl = () => {
   }
 
 export function Player() {
-  const { currentMusic, isPlaying, setIsPlaying, volume } = usePlayerStore(
+  const { currentMusic, isPlaying, setIsPlaying, volume, isPlayingSong, setIsPlayingSong } = usePlayerStore(
     (state) => state
   );
   const audioRef = useRef();
@@ -175,6 +174,10 @@ export function Player() {
   useEffect(() => {
     isPlaying ? audioRef.current.play() : audioRef.current.pause();
   }, [isPlaying]);
+
+  useEffect(() => {
+    isPlayingSong ? audioRef.current.play() : audioRef.current.pause();
+  }, [isPlayingSong]);
 
   useEffect(() => {
     audioRef.current.volume = volume;
@@ -192,6 +195,7 @@ export function Player() {
 
   const handleClick = () => {
     setIsPlaying(!isPlaying);
+    setIsPlayingSong(false);
   };
 
   return (
@@ -203,7 +207,13 @@ export function Player() {
       <div className="grid place-content-center gap-4 flex-1">
         <div className="flex justify-center">
           <button className="bg-white rounded-full p-2" onClick={handleClick}>
-            {!isPlaying ? <Play /> : <Pause />}
+            {
+              !isPlaying && !isPlayingSong  ? (
+                <Play />
+              ) : (
+                <Pause />
+              )
+            }
           </button>
           <SongControl audio={audioRef} />
           <audio ref={audioRef} />
