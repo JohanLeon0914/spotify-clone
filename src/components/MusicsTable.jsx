@@ -37,7 +37,7 @@ const PlaylistTable = ({ songs, playlist }) => {
   };
 
   const playNextSongInThePlaylist = () => {
-    if (isRandomMode) {
+    if (isRandomMode.active && isRandomMode.playlistId === playlist.id) {
       let randomIndex;
       do {
         randomIndex = Math.floor(Math.random() * songs.length);
