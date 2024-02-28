@@ -1,6 +1,7 @@
 ---
 import MusicsTable from "../../components/MusicsTable";
 import { CardPlayButton } from "../../components/CardPlayButton";
+import { RandomPlayButton } from "../../components/RandomPlayButton";
 import Layout from "../../layouts/Layout.astro";
 import { allPlaylists, songs } from "../../lib/data";
 import LeftArrowIcon from "@/icons/LeftArrow.astro";
@@ -70,7 +71,9 @@ const playListSongs = songs.filter(
 
     <div class="pl-6 pt-6">
       <CardPlayButton client:load id={id} size="large" />
+      <RandomPlayButton client:load id={id} />
     </div>
+
 
     <div class="relative z-10 px-6 pt-10"></div>
 

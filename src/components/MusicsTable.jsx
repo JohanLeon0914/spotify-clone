@@ -26,6 +26,7 @@ const PlaylistTable = ({ songs, playlist }) => {
     isSongEnded,
     isPlaying,
     setCurrentAudioTime,
+    isRandomMode,
   } = usePlayerStore((state) => state);
 
   const isCurrentSongPlayed = (song) => {
@@ -36,13 +37,22 @@ const PlaylistTable = ({ songs, playlist }) => {
   };
 
   const playNextSongInThePlaylist = () => {
-    const currentSong = currentMusic.song;
-    const currentIndexSong = songs.indexOf(currentSong);
-
-    if (currentIndexSong === songs.length - 1) {
-      setCurrentMusic({ songs, playlist, song: songs[0] });
+    if (isRandomMode) {
+      let randomIndex;
+      do {
+        randomIndex = Math.floor(Math.random() * songs.length);
+      } while (randomIndex === songs.indexOf(currentMusic.song));
+  
+      setCurrentMusic({ songs, playlist, song: songs[randomIndex] });
     } else {
-      setCurrentMusic({ songs, playlist, song: songs[currentIndexSong + 1] });
+      const currentSong = currentMusic.song;
+      const currentIndexSong = songs.indexOf(currentSong);
+  
+      if (currentIndexSong === songs.length - 1) {
+        setCurrentMusic({ songs, playlist, song: songs[0] });
+      } else {
+        setCurrentMusic({ songs, playlist, song: songs[currentIndexSong + 1] });
+      }
     }
   };
 
