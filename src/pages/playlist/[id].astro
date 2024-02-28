@@ -1,9 +1,9 @@
 ---
-import MusicsTable from "../../components/MusicsTable"
+import MusicsTable from "../../components/MusicsTable";
 import { CardPlayButton } from "../../components/CardPlayButton";
 import Layout from "../../layouts/Layout.astro";
 import { allPlaylists, songs } from "../../lib/data";
-import { usePlayerStore } from "@/store/playerStore";
+import LeftArrowIcon from "@/icons/LeftArrow.astro";
 
 const { id } = Astro.params;
 
@@ -20,35 +20,49 @@ const playListSongs = songs.filter(
     class="relative flex flex-col h-full bg-zinc-900 overflow-x-hidden"
     transition:name=`playlist ${id} box`
   >
+    <header class="flex flex-col md:flex-row gap-8 px-6 mt-12">
+      <div class="relative p-2">
+        <a href="/" class="flex items-center justify-center absolute top-0 left-0 transform -translate-x-1/2 -translate-y-1/2">
+          <LeftArrowIcon />
+        </a>
+      </div>
+    
 
-    <header class="flex flex-row gap-8 px-6 mt-12">
       <picture class="aspect-square w-52 h-52 flex-none">
         <img
           src={playlist?.cover}
           alt={`Cover of ${playlist?.title}`}
           class="object-cover w-full h-full shadow-lg"
-          transition:name=`playlist ${playlist?.id} image`
+          transition:name={`playlist ${playlist?.id} image`}
         />
       </picture>
 
       <div class="flex flex-col justify-between">
-        <h2 class="flex flex-1 items-end">Playlist</h2>
-        <div>
-          <h1 class="text-5xl font-bold block text-white">
+        <div class="md:hidden">
+          <h2 class="text-2xl font-bold text-white mb-2">
             {playlist?.title}
-            <span transition:name=`playlist ${playlist?.id} title`></span>
-          </h1>
+            <span transition:name={`playlist ${playlist?.id} title`}></span>
+          </h2>
         </div>
+        <div class="md:flex flex-col justify-between">
+          <h2 class="hidden md:flex items-end">Playlist</h2>
+          <div>
+            <h1 class="text-5xl font-bold block text-white">
+              {playlist?.title}
+              <span transition:name={`playlist ${playlist?.id} title`}></span>
+            </h1>
+          </div>
 
-        <div class="flex-1 flex items-end">
-          <div class="text-sm text-gray-300 font-normal">
-            <div transition:name=`playlist ${playlist?.id} artists`>
-              <span>{playlist?.artists.join(", ")}</span>
+          <div class="flex-1 flex items-end">
+            <div class="text-sm text-gray-300 font-normal">
+              <div transition:name={`playlist ${playlist?.id} artists`}>
+                <span>{playlist?.artists.join(", ")}</span>
+              </div>
+              <p class="mt-1">
+                <span class="text-white">{playListSongs.length} canciones</span
+                >, 3 h aproximadamente
+              </p>
             </div>
-            <p class="mt-1">
-              <span class="text-white">{playListSongs.length} canciones</span>,
-              3 h aproximadamente
-            </p>
           </div>
         </div>
       </div>

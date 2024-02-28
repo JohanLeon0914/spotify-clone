@@ -29,32 +29,34 @@ const PlaylistTable = ({ songs, playlist }) => {
   } = usePlayerStore((state) => state);
 
   const isCurrentSongPlayed = (song) => {
-    return (song.id === currentMusic.song?.id) && (playlist.id === song.albumId.toString());
+    return (
+      song.id === currentMusic.song?.id &&
+      playlist.id === song.albumId.toString()
+    );
   };
 
   const playNextSongInThePlaylist = () => {
-    const currentSong = currentMusic.song
+    const currentSong = currentMusic.song;
     const currentIndexSong = songs.indexOf(currentSong);
 
     if (currentIndexSong === songs.length - 1) {
-        setCurrentMusic({ songs, playlist, song: songs[0] });
+      setCurrentMusic({ songs, playlist, song: songs[0] });
     } else {
-        setCurrentMusic({ songs, playlist, song: songs[currentIndexSong + 1] });
+      setCurrentMusic({ songs, playlist, song: songs[currentIndexSong + 1] });
     }
-    
   };
 
   useEffect(() => {
-    if((isSongEnded && isPlayingSong) || (isSongEnded && isPlaying)) {
+    if ((isSongEnded && isPlayingSong) || (isSongEnded && isPlaying)) {
       playNextSongInThePlaylist();
       setIsSongEnded(false);
     }
-  }, [isSongEnded])
+  }, [isSongEnded]);
 
   const isPlayingSongOfThisPlaylist = (song) => {
-    console.log("entro")
+    console.log("entro");
     return false;
-  }
+  };
 
   return (
     <table className="table-auto text-left min-w-full divide-y divide-gray-500/20">
@@ -62,8 +64,10 @@ const PlaylistTable = ({ songs, playlist }) => {
         <tr className="text-zinc-400 text-sm">
           <th className="px-4 py-2 font-light">#</th>
           <th className="px-4 py-2 font-light">Título</th>
-          <th className="px-4 py-2 font-light">Álbum</th>
-          <th className="px-4 py-2 font-light"><TimeIcon /></th>
+          <th className="hidden md:table-cell px-4 py-2 font-light">Álbum</th>
+          <th className="hidden md:table-cell px-4 py-2 font-light">
+            <TimeIcon />
+          </th>
         </tr>
       </thead>
 
@@ -87,11 +91,10 @@ const PlaylistTable = ({ songs, playlist }) => {
           >
             <td className="px-4 py-2 rounded-tl-lg rounded-bl-lg w-5">
               {isCurrentSongPlayed(song) ? (
-                (isPlayingSong) ? (
+                isPlayingSong ? (
                   <button className="card-play-button rounded-full bg-green-500 p-2">
                     <Pause />
                   </button>
-                  
                 ) : (
                   <button className="card-play-button rounded-full bg-green-500 p-2">
                     <Play className="text-green-500" />
@@ -106,14 +109,16 @@ const PlaylistTable = ({ songs, playlist }) => {
                 <img src={song.image} alt={song.title} className="w-11 h-11" />
               </picture>
               <div className="flex flex-col">
-                <h3 className="text-white text-base font-normal">
-                  {song.title}
+                <h3 className="text-white text-base font-normal overflow-hidden whitespace-nowrap md:whitespace-normal">
+                  {song.title.length > 20
+                    ? `${song.title.substring(0, 12)}...`
+                    : song.title}
                 </h3>
                 <span>{song.artists.join(", ")}</span>
               </div>
             </td>
-            <td className="px-4 py-2">{song.album}</td>
-            <td className="px-4 py-2 rounded-tr-lg rounded-br-lg">
+            <td className="hidden md:table-cell px-4 py-2">{song.album}</td>
+            <td className="hidden md:table-cell px-4 py-2 rounded-tr-lg rounded-br-lg">
               {song.duration}
             </td>
           </tr>
