@@ -55,6 +55,15 @@ export const playlists: Playlist[] = [
       "https://i.scdn.co/image/ab67616d00001e02303d8545fce8302841c39859",
     artists: ["Raimu", "Yasumu"],
   },
+  {
+    id: '6',
+    albumId: 6,
+    title: "My Mix",
+    color: colors.blue,
+    cover:
+      "https://i.scdn.co/image/ab67616d0000b273675e743561da0c0ca16d6245",
+    artists: ["Raimu"],
+  },
 ];
 
 export const morePlaylists = playlists.map((item) => ({
@@ -81,6 +90,7 @@ export interface Song {
   artists: string[];
   album: string;
   duration: string;
+  href?: string | null;
 }
 
 export const songs: Song[] = [
@@ -389,5 +399,104 @@ export const songs: Song[] = [
     "artists": ["Irokz"],
     "album": "Omaña Playlist",
     "duration": "1:38"
+  },
+  {
+    "id": 1,
+    "albumId": 6,
+    "title": "ひぃふぅみぃ夜 ーわたげのことー」wasurene “HiFuMii-YO”",
+    "image": "https://i.ytimg.com/vi/AjKETjOQpQg/maxresdefault.jpg",
+    "artists": ["HiFuMii-YO"],
+    "album": "My Mix",
+    "duration": "2:53",
+  },
+  {
+    "id": 2,
+    "albumId": 6,
+    "title": "RISE (Remix)",
+    "image": "https://i.scdn.co/image/ab67616d0000b273675e743561da0c0ca16d6245",
+    "artists": ["Mako"],
+    "album": "My Mix",
+    "duration": "2:53"
+  },
+  {
+    "id": 3,
+    "albumId": 6,
+    "title": "米津玄師 Kenshi Yonezu - KICKBACK",
+    "image": "https://i.scdn.co/image/ab67616d00001e02303d8545fce8302841c39859",
+    "artists": ["Kenshi Yonezu"],
+    "album": "My Mix",
+    "duration": "3:47"
+  },
+  {
+    "id": 4,
+    "albumId": 6,
+    "title": "Fuego",
+    "image": "https://i.scdn.co/image/ab67616d0000b27387925046bbaf692f3878972d",
+    "artists": ["Timmy Trumpet"],
+    "album": "My Mix",
+    "duration": "2:34"
+  },
+  {
+    "id": 5,
+    "albumId": 6,
+    "title": "BoyWithUke 'Toxic'",
+    "image": "https://i.scdn.co/image/ab67616d0000b2731084caebe531beef538d2312",
+    "artists": ["BoyWithUke"],
+    "album": "My Mix",
+    "duration": "3:00"
+  },
+  {
+    "id": 6,
+    "albumId": 6,
+    "title": "Legends never die",
+    "image": "https://pics.filmaffinity.com/League_of_Legends_Legends_Never_Die_Vaideo_musical-172041920-large.jpg",
+    "artists": ["LOL"],
+    "album": "My Mix",
+    "duration": "3:55"
+  },
+  {
+    "id": 7,
+    "albumId": 6,
+    "title": "Mary on a cross",
+    "image": "https://i.scdn.co/image/ab67616d0000b273bef9b0a348ea8dd18a581025",
+    "artists": ["Ghost"],
+    "album": "My Mix",
+    "duration": "4:04"
+  },
+  {
+    "id": 8,
+    "albumId": 6,
+    "title": "Unmei no Hi: Tamashi tai Tamashi ",
+    "image": "https://i1.sndcdn.com/artworks-000189314953-abrfkq-t500x500.jpg",
+    "artists": ["Tamashi tai"],
+    "album": "My Mix",
+    "duration": "4:55"
+  },
+  {
+    "id": 9,
+    "albumId": 6,
+    "title": "David Guetta & Bebe Rexha - I'm Good (Blue)",
+    "image": "https://i.scdn.co/image/ab67616d0000b2736c9986f55f4ddb5b5f3418ae",
+    "artists": ["David Guetta", "Bebe Rexha"],
+    "album": "My Mix",
+    "duration": "2:57"
+  },
+  {
+    "id": 10,
+    "albumId": 6,
+    "title": "R3HAB, INNA, Sash! - Rock My Body (W&W x R3HAB VIP Remix",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/12/3e/ec/123eec2f-7458-b186-ad8b-4c0adab226cf/5054197766015.jpg/600x600bf-60.jpg",
+    "artists": ["R3HAB"],
+    "album": "My Mix",
+    "duration": "2:56"
+  },
+  {
+    "id": 11,
+    "albumId": 6,
+    "title": "Gods LOL",
+    "image": "https://i.ytimg.com/vi/jdzKPUhXa-o/sddefault.jpg",
+    "artists": ["NewJeans"],
+    "album": "My Mix",
+    "duration": "3:41"
   },
 ]
