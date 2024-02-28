@@ -148,7 +148,7 @@ const SongControl = ({ audio }) => {
         value={[currentTime]}
         max={audio?.current?.duration ?? 0}
         min={0}
-        className="w-[200px]"
+        className="w-[200px] md:w-[500px]"
         onValueChange={(value) => {
           const [newCurrentTime] = value;
           audio.current.currentTime = newCurrentTime;
@@ -293,37 +293,37 @@ export function Player() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-between w-full px-4 z-50 md:items-center md:gap-10 md:pl-[550px]">
-      <div>
-        <CurrentSong {...currentMusic.song} />
+    <div className="flex flex-col md:flex-row justify-between w-full px-4 z-50 md:items-center mx-auto">
+  <div>
+    <CurrentSong {...currentMusic.song} />
+  </div>
+
+  <div className="flex flex-col items-center gap-4">
+    <div className="flex flex-col items-center gap-2 justify-center">
+      {currentSong && (
+        <button className="bg-white rounded-full p-2 md:mt-2" onClick={handleClick}>
+          {!isPlayingSong ? <Play /> : <Pause />}
+        </button>
+      )}
+
+      <div className="flex justify-center">
+        <button className="ml-2" onClick={SelectPrevSong}>
+          <PrevIcon />
+        </button>
+
+        <SongControl audio={audioRef} />
+
+        <button className="mr-2" onClick={SelectNextSong}>
+          <NextIcon />
+        </button>
       </div>
-
-      <div className="flex flex-col items-center gap-4">
-        <div className="flex flex-col md:flex-row items-center gap-4 justify-center">
-          {currentSong && (
-            <button className="bg-white rounded-full p-2" onClick={handleClick}>
-              {!isPlayingSong ? <Play /> : <Pause />}
-            </button>
-          )}
-
-          <div className="flex justify-center">
-            <button className="ml-2" onClick={SelectPrevSong}>
-              <PrevIcon />
-            </button>
-
-            <SongControl audio={audioRef} />
-
-            <button className="mr-2" onClick={SelectNextSong}>
-              <NextIcon />
-            </button>
-          </div>
-          <audio ref={audioRef} />
-        </div>
-      </div>
-
-      <div className="hidden md:flex items-center justify-center">
-        <VolumeControl />
-      </div>
+      <audio ref={audioRef} />
     </div>
+  </div>
+
+  <div className="hidden md:flex items-center justify-center">
+    <VolumeControl />
+  </div>
+</div>
   );
 }
