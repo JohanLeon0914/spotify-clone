@@ -294,7 +294,7 @@ export function Player() {
 
   return (
     <div className="flex flex-col md:flex-row justify-between w-full px-4 z-50 md:items-center mx-auto">
-  <div>
+  <div className="max-w-[300px] md:min-w-[300px]">
     <CurrentSong {...currentMusic.song} />
   </div>
 
