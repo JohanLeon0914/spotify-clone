@@ -26,7 +26,7 @@ const PlaylistTable = ({ songs, playlist }) => {
     isSongEnded,
     isPlaying,
     setCurrentAudioTime,
-    isRandomMode,
+    randomModeIds,
   } = usePlayerStore((state) => state);
 
   const isCurrentSongPlayed = (song) => {
@@ -37,7 +37,7 @@ const PlaylistTable = ({ songs, playlist }) => {
   };
 
   const playNextSongInThePlaylist = () => {
-    if (isRandomMode.active && isRandomMode.playlistId === playlist.id) {
+    if (randomModeIds.includes(playlist.id)) {
       let randomIndex;
       do {
         randomIndex = Math.floor(Math.random() * songs.length);

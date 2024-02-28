@@ -36,10 +36,16 @@ const RandomIconEnabled = ({ className }) => (
 );
 
 export function RandomPlayButton({ id }) {
-  const { setIsRandomMode, isRandomMode } = usePlayerStore((state) => state);
+  const { setRandomModeIds, randomModeIds } = usePlayerStore((state) => state);
 
   const handleClick = () => {
-    setIsRandomMode({ active: !isRandomMode.active, playlistId: id });
+    if (randomModeIds.includes(id)) {
+      // Si la ID ya está en el arreglo, la quitamos
+      setRandomModeIds(randomModeIds.filter(randomId => randomId !== id));
+    } else {
+      // Si la ID no está en el arreglo, la agregamos
+      setRandomModeIds([...randomModeIds, id]);
+    }
   };
 
   return (
@@ -47,7 +53,7 @@ export function RandomPlayButton({ id }) {
       onClick={handleClick}
       className={`card-play-button rounded-full align-middle ml-4`}
     >
-      {isRandomMode.active && isRandomMode.playlistId === id ? (
+      {randomModeIds.includes(id) ? (
         <RandomIconEnabled />
       ) : (
         <RandomIconDisabled />
