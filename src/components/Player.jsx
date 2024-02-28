@@ -65,7 +65,7 @@ export const NextIcon = () => (
     width="26"
     height="26"
     viewBox="0 0 24 24"
-    stroke="#2c3e50"
+    stroke="#fff"
     fill="none"
   >
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -80,7 +80,7 @@ export const PrevIcon = () => (
     width="26"
     height="26"
     viewBox="0 0 24 24"
-    stroke="#2c3e50"
+    stroke="#fff"
     fill="none"
   >
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
