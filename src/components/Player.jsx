@@ -59,6 +59,36 @@ export const Volume = () => (
   </svg>
 );
 
+export const NextIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="26"
+    height="26"
+    viewBox="0 0 24 24"
+    stroke="#2c3e50"
+    fill="none"
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M7 7l5 5l-5 5" />
+    <path d="M13 7l5 5l-5 5" />
+  </svg>
+);
+
+export const PrevIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="26"
+    height="26"
+    viewBox="0 0 24 24"
+    stroke="#2c3e50"
+    fill="none"
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M11 7l-5 5l5 5" />
+    <path d="M17 7l-5 5l5 5" />
+  </svg>
+);
+
 const CurrentSong = ({ image, title, artists }) => {
   return (
     <div
@@ -184,12 +214,13 @@ export function Player() {
     setCurrentAudioTime,
     currentAudioTime,
     setCurrentSong,
+    setCurrentMusic,
   } = usePlayerStore((state) => state);
   const audioRef = useRef();
 
   useEffect(() => {
     isPlayingSong ? audioRef.current.play() : audioRef.current.pause();
-    setCurrentAudioTime(audioRef.current.currentTime)
+    setCurrentAudioTime(audioRef.current.currentTime);
   }, [isPlayingSong]);
 
   useEffect(() => {
@@ -203,9 +234,9 @@ export function Player() {
       const src = `/music/${playlist?.id}/${song.id}.mp3`;
       audioRef.current.src = src;
       audioRef.current.volume = volume;
-      if(currentAudioTime) {
+      if (currentAudioTime) {
         audioRef.current.currentTime = currentAudioTime;
-        setCurrentAudioTime(null)
+        setCurrentAudioTime(null);
       }
       audioRef.current.play();
     }
@@ -214,6 +245,49 @@ export function Player() {
   const handleClick = () => {
     setIsPlaying(!isPlaying);
     setIsPlayingSong(!isPlayingSong);
+  };
+
+  const SelectPrevSong = () => {
+    const { song, songs } = currentMusic;
+    if(!song) {
+      return;
+    }
+    const currentIndex = songs.findIndex((s) => s.id === song.id);
+    let newIndex;
+    if (currentIndex === 0) {
+      // Si es la primera canción, selecciona la última canción
+      newIndex = songs.length - 1;
+    } else {
+      // De lo contrario, selecciona la canción anterior
+      newIndex = currentIndex - 1;
+    }
+
+    const prevSong = songs[newIndex];
+    setCurrentMusic({ ...currentMusic, song: prevSong });
+    setCurrentAudioTime(null);
+    setIsPlayingSong(true);
+  };
+
+  const SelectNextSong = () => {
+    const { song, songs } = currentMusic;
+    if(!song) {
+      return;
+    }
+    const currentIndex = songs.findIndex((s) => s.id === song.id);
+
+    let newIndex;
+    if (currentIndex === songs.length - 1) {
+      // Si es la última canción, selecciona la primera canción
+      newIndex = 0;
+    } else {
+      // De lo contrario, selecciona la siguiente canción
+      newIndex = currentIndex + 1;
+    }
+
+    const nextSong = songs[newIndex];
+    setCurrentMusic({ ...currentMusic, song: nextSong });
+    setCurrentAudioTime(null);
+    setIsPlayingSong(true);
   };
 
   return (
@@ -227,7 +301,14 @@ export function Player() {
           <button className="bg-white rounded-full p-2" onClick={handleClick}>
             {!isPlayingSong ? <Play /> : <Pause />}
           </button>
+          <button className="ml-2" onClick={SelectPrevSong}>
+            <PrevIcon />
+          </button>
+
           <SongControl audio={audioRef} />
+          <button className="mr-2" onClick={SelectNextSong}>
+            <NextIcon />
+          </button>
           <audio ref={audioRef} />
         </div>
       </div>
