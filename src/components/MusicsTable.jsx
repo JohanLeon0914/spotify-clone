@@ -1,5 +1,6 @@
 import { usePlayerStore } from "@/store/playerStore";
 import { Pause, Play } from "@/components/Player";
+import { useEffect } from "react";
 const TimeIcon = () => (
   <svg
     role="img"
@@ -21,11 +22,33 @@ const PlaylistTable = ({ songs, playlist }) => {
     setCurrentMusic,
     currentMusic,
     setIsPlaying,
+    setIsSongEnded,
+    isSongEnded,
+    isPlaying
   } = usePlayerStore((state) => state);
 
   const isCurrentSongPlayed = (song_id) => {
     return song_id === currentMusic.song?.id;
   };
+
+  const playNextSongInThePlaylist = () => {
+    const currentSong = currentMusic.song
+    const currentIndexSong = songs.indexOf(currentSong);
+
+    if (currentIndexSong === songs.length - 1) {
+        setCurrentMusic({ songs, playlist, song: songs[0] });
+    } else {
+        setCurrentMusic({ songs, playlist, song: songs[currentIndexSong + 1] });
+    }
+    
+  };
+
+  useEffect(() => {
+    if((isSongEnded && isPlayingSong) || (isSongEnded && isPlaying)) {
+      playNextSongInThePlaylist();
+      setIsSongEnded(false);
+    }
+  }, [isSongEnded])
 
   return (
     <table className="table-auto text-left min-w-full divide-y divide-gray-500/20">
