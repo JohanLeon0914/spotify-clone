@@ -330,8 +330,8 @@ export const songs: Song[] = [
   {
     "id": 8,
     "albumId": 5,
-    "title": "佐咲紗花｜ 『ID-0』MV Full size",
-    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/bf/76/81/bf7681ec-6108-2817-c963-6a7c71ce39e1/4062994001155_cover.jpg/400x400cc.jpg",
+    "title": "佐咲紗花｜ 『ID-0』",
+    "image": "https://i.ytimg.com/vi/Uezc8O5csno/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBSC7kBQy6yfm21YZWRn28n6ZR3dA",
     "artists": ["Kokonoku"],
     "album": "Omaña Playlist",
     "duration": "1:48"

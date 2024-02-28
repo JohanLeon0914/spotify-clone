@@ -24,7 +24,8 @@ const PlaylistTable = ({ songs, playlist }) => {
     setIsPlaying,
     setIsSongEnded,
     isSongEnded,
-    isPlaying
+    isPlaying,
+    setCurrentAudioTime,
   } = usePlayerStore((state) => state);
 
   const isCurrentSongPlayed = (song_id) => {
@@ -72,6 +73,7 @@ const PlaylistTable = ({ songs, playlist }) => {
                 setIsPlayingSong(false);
               } else {
                 setIsPlayingSong(true);
+                setCurrentAudioTime(null);
                 setCurrentMusic({ songs, playlist, song: songs[index] });
               }
               setIsPlaying(false);
