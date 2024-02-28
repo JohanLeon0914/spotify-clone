@@ -215,6 +215,7 @@ export function Player() {
     currentAudioTime,
     setCurrentSong,
     setCurrentMusic,
+    currentSong,
   } = usePlayerStore((state) => state);
   const audioRef = useRef();
 
@@ -243,6 +244,7 @@ export function Player() {
   }, [currentMusic]);
 
   const handleClick = () => {
+    if(!currentSong) return;
     setIsPlaying(!isPlaying);
     setIsPlayingSong(!isPlayingSong);
   };
@@ -298,9 +300,12 @@ export function Player() {
 
       <div className="flex flex-col items-center gap-4">
         <div className="flex flex-col md:flex-row items-center gap-4 justify-center">
-          <button className="bg-white rounded-full p-2" onClick={handleClick}>
-            {!isPlayingSong ? <Play /> : <Pause />}
-          </button>
+          {currentSong && (
+            <button className="bg-white rounded-full p-2" onClick={handleClick}>
+              {!isPlayingSong ? <Play /> : <Pause />}
+            </button>
+          )}
+
           <div className="flex justify-center">
             <button className="ml-2" onClick={SelectPrevSong}>
               <PrevIcon />

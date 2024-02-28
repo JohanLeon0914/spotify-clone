@@ -53,11 +53,6 @@ const PlaylistTable = ({ songs, playlist }) => {
     }
   }, [isSongEnded]);
 
-  const isPlayingSongOfThisPlaylist = (song) => {
-    console.log("entro");
-    return false;
-  };
-
   return (
     <table className="table-auto text-left min-w-full divide-y divide-gray-500/20">
       <thead className="">
