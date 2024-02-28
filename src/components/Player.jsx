@@ -181,15 +181,14 @@ export function Player() {
     volume,
     isPlayingSong,
     setIsPlayingSong,
+    setCurrentAudioTime,
+    currentAudioTime,
   } = usePlayerStore((state) => state);
   const audioRef = useRef();
 
   useEffect(() => {
-    isPlaying ? audioRef.current.play() : audioRef.current.pause();
-  }, [isPlaying]);
-
-  useEffect(() => {
     isPlayingSong ? audioRef.current.play() : audioRef.current.pause();
+    setCurrentAudioTime(audioRef.current.currentTime)
   }, [isPlayingSong]);
 
   useEffect(() => {
@@ -197,11 +196,16 @@ export function Player() {
   }, [volume]);
 
   useEffect(() => {
-    const { song, playlist, songs } = currentMusic;
+    const { song, playlist } = currentMusic;
     if (song) {
+      console.log(currentAudioTime)
       const src = `/music/${playlist?.id}/${song.id}.mp3`;
       audioRef.current.src = src;
       audioRef.current.volume = volume;
+      if(currentAudioTime) {
+        audioRef.current.currentTime = currentAudioTime;
+        setCurrentAudioTime(null)
+      }
       audioRef.current.play();
     }
   }, [currentMusic]);
