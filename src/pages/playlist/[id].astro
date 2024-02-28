@@ -3,10 +3,12 @@ import MusicsTable from "../../components/MusicsTable"
 import { CardPlayButton } from "../../components/CardPlayButton";
 import Layout from "../../layouts/Layout.astro";
 import { allPlaylists, songs } from "../../lib/data";
+import { usePlayerStore } from "@/store/playerStore";
 
 const { id } = Astro.params;
 
 const playlist = allPlaylists.find((playlist) => playlist.id === id);
+
 const playListSongs = songs.filter(
   (song) => song.albumId === playlist?.albumId
 );
@@ -18,7 +20,6 @@ const playListSongs = songs.filter(
     class="relative flex flex-col h-full bg-zinc-900 overflow-x-hidden"
     transition:name=`playlist ${id} box`
   >
-    <!-- <PageHeader /> -->
 
     <header class="flex flex-row gap-8 px-6 mt-12">
       <picture class="aspect-square w-52 h-52 flex-none">

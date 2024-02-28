@@ -80,9 +80,7 @@ const CurrentSong = ({ image, title, artists }) => {
 };
 
 const SongControl = ({ audio }) => {
-  const {
-    setIsSongEnded,
-  } = usePlayerStore((state) => state);
+  const { setIsSongEnded } = usePlayerStore((state) => state);
   const [currentTime, setCurrentTime] = useState(0);
   const duration = audio?.current?.duration ?? 0;
 
@@ -210,7 +208,7 @@ export function Player() {
 
   const handleClick = () => {
     setIsPlaying(!isPlaying);
-    setIsPlayingSong(false);
+    setIsPlayingSong(!isPlayingSong);
   };
 
   return (
@@ -222,7 +220,7 @@ export function Player() {
       <div className="grid place-content-center gap-4 flex-1">
         <div className="flex justify-center">
           <button className="bg-white rounded-full p-2" onClick={handleClick}>
-            {!isPlaying && !isPlayingSong ? <Play /> : <Pause />}
+            {!isPlayingSong ? <Play /> : <Pause />}
           </button>
           <SongControl audio={audioRef} />
           <audio ref={audioRef} />
