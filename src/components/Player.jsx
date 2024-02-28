@@ -183,6 +183,7 @@ export function Player() {
     setIsPlayingSong,
     setCurrentAudioTime,
     currentAudioTime,
+    setCurrentSong,
   } = usePlayerStore((state) => state);
   const audioRef = useRef();
 
@@ -198,7 +199,7 @@ export function Player() {
   useEffect(() => {
     const { song, playlist } = currentMusic;
     if (song) {
-      console.log(currentAudioTime)
+      setCurrentSong(song);
       const src = `/music/${playlist?.id}/${song.id}.mp3`;
       audioRef.current.src = src;
       audioRef.current.volume = volume;

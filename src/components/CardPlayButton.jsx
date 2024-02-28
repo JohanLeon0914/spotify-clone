@@ -1,8 +1,8 @@
 import { usePlayerStore } from "../store/playerStore";
 import { Pause, Play } from "./Player";
 
-export function CardPlayButton({ id, size = "small", song_position = 0 }) {
-  const { currentMusic, isPlaying, setIsPlaying, setCurrentMusic, setIsPlayingSong, isPlayingSong } =
+export function CardPlayButton({ id, size = "small" }) {
+  const { currentMusic, isPlaying, setIsPlaying, setCurrentMusic, setIsPlayingSong, isPlayingSong, currentSong, } =
     usePlayerStore((state) => state);
   const isPlayingPlaylist = isPlayingSong && currentMusic?.playlist.id === id;
 
@@ -17,10 +17,14 @@ export function CardPlayButton({ id, size = "small", song_position = 0 }) {
       .then((res) => res.json())
       .then((data) => {
         const { songs, playlist } = data;
-        
         setIsPlayingSong(true);
         setIsPlaying(true);
-        setCurrentMusic({ songs, playlist, song: songs[song_position] });
+        if(currentSong) {
+          setCurrentMusic({ songs, playlist, song: currentSong });
+        } else {
+          setCurrentMusic({ songs, playlist, song: songs[0] });
+        }
+        
       });
   };
 
