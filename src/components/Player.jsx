@@ -142,7 +142,7 @@ const SongControl = ({ audio, song }) => {
 
   return (
     <div className="md:flex md:flex-row gap-x-3 text-xs pt-2 md:ml-4">
-      <span className="hidden md:block opacity-50 w-12 text-right">
+      <span className="hidden text-[14px] md:block opacity-50 w-12 text-right">
             {formatTime(currentTime)}
           </span>
       <Slider
@@ -157,11 +157,11 @@ const SongControl = ({ audio, song }) => {
         }}
       />
 
-      <span className="opacity-50 w-12 hidden md:block">
+      <span className="opacity-50 w-12 hidden md:block text-[14px]">
         {duration ? formatTime(duration) : "0:00"}
       </span>
 
-      <div className="flex md:hidden gap-[303px] mt-1.5">
+      <div className="flex md:hidden gap-[300px] mt-1.5 text-[14px]">
         <div className="min-w-8">
           <span className="opacity-50 w-12 text-right">
             {formatTime(currentTime)}
