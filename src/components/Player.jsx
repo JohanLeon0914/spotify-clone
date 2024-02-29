@@ -60,32 +60,34 @@ export const Volume = () => (
 );
 
 export const NextIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="36"
-    height="36"
-    viewBox="0 0 24 24"
-    stroke="#fff"
-    fill="none"
-  >
+  <svg width="32" height="32" viewBox="0 0 24 24" stroke="#2c3e50" fill="none">
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-    <path d="M7 7l5 5l-5 5" />
-    <path d="M13 7l5 5l-5 5" />
+    <path
+      d="M3 5v14a1 1 0 0 0 1.504 .864l12 -7a1 1 0 0 0 0 -1.728l-12 -7a1 1 0 0 0 -1.504 .864z"
+      strokeWidth="0"
+      fill="currentColor"
+    />
+    <path
+      d="M20 4a1 1 0 0 1 .993 .883l.007 .117v14a1 1 0 0 1 -1.993 .117l-.007 -.117v-14a1 1 0 0 1 1 -1z"
+      strokeWidth="0"
+      fill="currentColor"
+    />
   </svg>
 );
 
 export const PrevIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="36"
-    height="36"
-    viewBox="0 0 24 24"
-    stroke="#fff"
-    fill="none"
-  >
+  <svg width="32" height="32" viewBox="0 0 24 24" stroke="#2c3e50" fill="none">
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-    <path d="M11 7l-5 5l5 5" />
-    <path d="M17 7l-5 5l5 5" />
+    <path
+      d="M19.496 4.136l-12 7a1 1 0 0 0 0 1.728l12 7a1 1 0 0 0 1.504 -.864v-14a1 1 0 0 0 -1.504 -.864z"
+      strokeWidth="0"
+      fill="currentColor"
+    />
+    <path
+      d="M4 4a1 1 0 0 1 .993 .883l.007 .117v14a1 1 0 0 1 -1.993 .117l-.007 -.117v-14a1 1 0 0 1 1 -1z"
+      strokeWidth="0"
+      fill="currentColor"
+    />
   </svg>
 );
 
@@ -298,15 +300,19 @@ export function Player() {
         <CurrentSong {...currentMusic.song} />
       </div>
 
-      <div className="flex flex-col items-center gap-4">
-        <div className="flex flex-col items-center gap-2 justify-center">
+      <div className="flex flex-col items-center gap-2">
+        <div className="flex flex-col items-center gap-4 justify-center">
+          <div className="flex justify-center md:mt-2">
+            <SongControl audio={audioRef} />
+          </div>
+
           {currentSong && (
-            <div className="flex flex-row gap-6">
+            <div className="flex flex-row gap-x-9">
               <button onClick={SelectPrevSong}>
                 <PrevIcon />
               </button>
               <button
-                className="bg-white rounded-full p-4 md:mt-2"
+                className="bg-white rounded-full p-4"
                 onClick={handleClick}
               >
                 {!isPlayingSong ? <Play /> : <Pause />}
@@ -317,9 +323,6 @@ export function Player() {
             </div>
           )}
 
-          <div className="flex justify-center">
-            <SongControl audio={audioRef} />
-          </div>
           <audio ref={audioRef} />
         </div>
       </div>
