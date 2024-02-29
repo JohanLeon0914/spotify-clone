@@ -63,6 +63,39 @@ const PlaylistTable = ({ songs, playlist }) => {
     }
   }, [isSongEnded]);
 
+  const selectSongOfTheTable = (song, index) => {
+    // Check if the selected song is currently playing
+    const currentSongIsPlaying = song.id === currentMusic.song?.id;
+  
+    // If a song is currently playing
+    if (isPlayingSong) {
+      // Pause the playback
+      setIsPlayingSong(false);
+  
+      // If the user selects a different song to play, reset the playback time and selects the new song
+      if (!currentSongIsPlaying) {
+        setIsPlayingSong(true);
+        setCurrentAudioTime(null);
+        setCurrentMusic({ songs, playlist, song: songs[index] });
+      } else {
+        // If the same song is selected again, resume playback
+        setIsPlayingSong(!isPlayingSong);
+      }
+    } else {
+      // If no song is currently playing
+      // Start playback
+      setIsPlayingSong(true);
+      // Set the selected song for playback
+      setCurrentMusic({ songs, playlist, song: songs[index] });
+  
+      // If the user selects a different song, reset the playback time
+      if (!currentSongIsPlaying) {
+        setCurrentAudioTime(null);
+      } 
+      
+    }
+  };
+
   return (
     <table className="table-auto text-left min-w-full divide-y divide-gray-500/20">
       <thead className="">
@@ -81,29 +114,7 @@ const PlaylistTable = ({ songs, playlist }) => {
         {songs.map((song, index) => (
           <tr
             className="border-spacing-0 text-gray-300 text-sm font-light hover:bg-white/10 hover:cursor-pointer overflow-hidden transition duration-300"
-            onClick={() => {
-              const currentSongIsSound = song.id === currentMusic.song?.id;
-              if (isPlayingSong) {
-                setIsPlayingSong(false);
-                if(!currentSongIsSound) {
-                  //si es otra cancion la que va a empezar a zonar, reinicio el tiempo
-                  setIsPlayingSong(true);
-                  setCurrentAudioTime(null);
-                  setCurrentMusic({ songs, playlist, song: songs[index] });
-                } else {
-                  //si no es otra cancion la que va a sonar, solo la despauso
-                  setIsPlayingSong(!isPlayingSong);
-                }
-              } else {
-                //aqui se despausa la cancion
-                setIsPlayingSong(true);
-                if(!currentSongIsSound) {
-                  setCurrentAudioTime(null);
-                }
-                setCurrentMusic({ songs, playlist, song: songs[index] });
-              }
-
-            }}
+            onClick={() => selectSongOfTheTable(song, index)}
             key={index}
           >
             <td className="px-4 py-2 rounded-tl-lg rounded-bl-lg w-5">
