@@ -27,7 +27,7 @@ export function CardPlayButton({ id, size = "small" }) {
         const { songs, playlist } = data;
         setIsPlayingSong(true);
         setIsPlaying(true);
-        if (currentMusic?.playlist.id === id) {
+        if (currentMusic?.playlist?.id === id) {
           setCurrentMusic({ songs, playlist, song: currentSong });
         } else {
           setCurrentMusic({ songs, playlist, song: songs[0] });
