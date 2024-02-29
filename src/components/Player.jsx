@@ -149,7 +149,7 @@ const SongControl = ({ audio }) => {
         value={[currentTime]}
         max={audio?.current?.duration ?? 0}
         min={0}
-        className="w-[340px] md:w-[500px]"
+        className="w-[355px] md:w-[500px]"
         onValueChange={(value) => {
           const [newCurrentTime] = value;
           audio.current.currentTime = newCurrentTime;
@@ -159,7 +159,7 @@ const SongControl = ({ audio }) => {
         {formatTime(currentTime)}
       </span>
 
-      <span className="opacity-50 w-12 ml-[290px] md:hidden">
+      <span className="opacity-50 w-12 ml-[304px] md:hidden">
         {duration ? formatTime(duration) : "0:00"}
       </span>
     </div>
