@@ -97,8 +97,8 @@ const CurrentSong = ({ image, title, artists }) => {
           overflow-hidden
         `}
     >
-      <picture className="w-16 h-16 bg-zinc-800 rounded-md shadow-lg overflow-hidden mb-2">
-        <img src={image} alt={title} />
+      <picture className="w-16 h-16 bg-zinc-800 rounded-md shadow-lg overflow-hidden">
+        <img className="" src={image} alt={title} />
       </picture>
 
       <div className="flex flex-col">
@@ -292,7 +292,7 @@ export function Player() {
 
   return (
     <div className="flex flex-col md:flex-row justify-between w-full px-4 z-50 md:items-center mx-auto gap-4">
-      <div className="ml-2 max-w-[300px] md:min-w-[300px] mb-2">
+      <div className="ml-4 mt-2 max-w-[300px] md:min-w-[300px]">
         <CurrentSong {...currentMusic.song} />
       </div>
 
