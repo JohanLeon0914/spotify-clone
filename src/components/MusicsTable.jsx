@@ -42,12 +42,12 @@ const PlaylistTable = ({ songs, playlist }) => {
       do {
         randomIndex = Math.floor(Math.random() * songs.length);
       } while (randomIndex === songs.indexOf(currentMusic.song));
-  
+
       setCurrentMusic({ songs, playlist, song: songs[randomIndex] });
     } else {
       const currentSong = currentMusic.song;
       const currentIndexSong = songs.indexOf(currentSong);
-  
+
       if (currentIndexSong === songs.length - 1) {
         setCurrentMusic({ songs, playlist, song: songs[0] });
       } else {
@@ -87,9 +87,7 @@ const PlaylistTable = ({ songs, playlist }) => {
                 setIsPlayingSong(false);
               } else {
                 setIsPlayingSong(true);
-                if(!isPlayingSong) {
-                  setCurrentAudioTime(null);
-                }
+                setCurrentAudioTime(null);
                 setCurrentMusic({ songs, playlist, song: songs[index] });
               }
               setIsPlaying(false);

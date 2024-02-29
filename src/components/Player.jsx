@@ -206,8 +206,6 @@ const VolumeControl = () => {
 export function Player() {
   const {
     currentMusic,
-    isPlaying,
-    setIsPlaying,
     volume,
     isPlayingSong,
     setIsPlayingSong,
@@ -237,15 +235,14 @@ export function Player() {
       audioRef.current.volume = volume;
       if (currentAudioTime) {
         audioRef.current.currentTime = currentAudioTime;
-        setCurrentAudioTime(null);
       }
+      setCurrentAudioTime(null);
       audioRef.current.play();
     }
   }, [currentMusic]);
 
   const handleClick = () => {
-    if(!currentSong) return;
-    setIsPlaying(!isPlaying);
+    if (!currentSong) return;
     setIsPlayingSong(!isPlayingSong);
   };
 
@@ -254,6 +251,7 @@ export function Player() {
     if (!song) {
       return;
     }
+
     const currentIndex = songs.findIndex((s) => s.id === song.id);
     let newIndex;
     if (currentIndex === 0) {
@@ -294,36 +292,39 @@ export function Player() {
 
   return (
     <div className="flex flex-col md:flex-row justify-between w-full px-4 z-50 md:items-center mx-auto">
-  <div className="max-w-[300px] md:min-w-[300px]">
-    <CurrentSong {...currentMusic.song} />
-  </div>
-
-  <div className="flex flex-col items-center gap-4">
-    <div className="flex flex-col items-center gap-2 justify-center">
-      {currentSong && (
-        <button className="bg-white rounded-full p-2 md:mt-2" onClick={handleClick}>
-          {!isPlayingSong ? <Play /> : <Pause />}
-        </button>
-      )}
-
-      <div className="flex justify-center">
-        <button className="ml-2" onClick={SelectPrevSong}>
-          <PrevIcon />
-        </button>
-
-        <SongControl audio={audioRef} />
-
-        <button className="mr-2" onClick={SelectNextSong}>
-          <NextIcon />
-        </button>
+      <div className="max-w-[300px] md:min-w-[300px]">
+        <CurrentSong {...currentMusic.song} />
       </div>
-      <audio ref={audioRef} />
-    </div>
-  </div>
 
-  <div className="hidden md:flex items-center justify-center">
-    <VolumeControl />
-  </div>
-</div>
+      <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-2 justify-center">
+          {currentSong && (
+            <button
+              className="bg-white rounded-full p-2 md:mt-2"
+              onClick={handleClick}
+            >
+              {!isPlayingSong ? <Play /> : <Pause />}
+            </button>
+          )}
+
+          <div className="flex justify-center">
+            <button className="ml-2" onClick={SelectPrevSong}>
+              <PrevIcon />
+            </button>
+
+            <SongControl audio={audioRef} />
+
+            <button className="mr-2" onClick={SelectNextSong}>
+              <NextIcon />
+            </button>
+          </div>
+          <audio ref={audioRef} />
+        </div>
+      </div>
+
+      <div className="hidden md:flex items-center justify-center">
+        <VolumeControl />
+      </div>
+    </div>
   );
 }
