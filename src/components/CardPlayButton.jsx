@@ -9,6 +9,7 @@ export function CardPlayButton({ id, size = "small" }) {
     setIsPlayingSong,
     isPlayingSong,
     currentSong,
+    setCurrentAudioTime,
   } = usePlayerStore((state) => state);
   const isPlayingPlaylist = isPlayingSong && currentMusic?.playlist.id === id;
 
@@ -30,6 +31,7 @@ export function CardPlayButton({ id, size = "small" }) {
         if (currentMusic?.playlist?.id === id) {
           setCurrentMusic({ songs, playlist, song: currentSong });
         } else {
+          setCurrentAudioTime(null);
           setCurrentMusic({ songs, playlist, song: songs[0] });
         }
       });
