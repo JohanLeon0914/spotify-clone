@@ -551,7 +551,7 @@ export const songs: Song[] = [
     "image": "https://m.media-amazon.com/images/M/MV5BN2Y3YTRkOWEtNGVjZS00OTZkLWE2NzctZjFhNjg3MzExMGRhXkEyXkFqcGdeQXVyNjE0ODc0MDc@._V1_.jpg",
     "artists": ["David Guetta", "Nicki Minaj"],
     "album": "My Mix",
-    "duration": "3:12"
+    "duration": "3:19"
   },
   {
     "id": "Aaron Smith - Dancin (KRONO Remix) - Lyrics",
