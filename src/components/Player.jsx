@@ -161,7 +161,7 @@ const SongControl = ({ audio, song }) => {
         {duration ? formatTime(duration) : "0:00"}
       </span>
 
-      <div className="flex md:hidden gap-[302px] mt-1.5">
+      <div className="flex md:hidden gap-[303px] mt-1.5">
         <div className="min-w-8">
           <span className="opacity-50 w-12 text-right">
             {formatTime(currentTime)}
