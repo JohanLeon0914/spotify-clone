@@ -83,14 +83,26 @@ const PlaylistTable = ({ songs, playlist }) => {
             className="border-spacing-0 text-gray-300 text-sm font-light hover:bg-white/10 hover:cursor-pointer overflow-hidden transition duration-300"
             onClick={() => {
               const currentSongIsSound = song.id === currentMusic.song?.id;
-              if (currentSongIsSound && isPlayingSong) {
+              if (isPlayingSong) {
                 setIsPlayingSong(false);
+                if(!currentSongIsSound) {
+                  //si es otra cancion la que va a empezar a zonar, reinicio el tiempo
+                  setIsPlayingSong(true);
+                  setCurrentAudioTime(null);
+                  setCurrentMusic({ songs, playlist, song: songs[index] });
+                } else {
+                  //si no es otra cancion la que va a sonar, solo la despauso
+                  setIsPlayingSong(!isPlayingSong);
+                }
               } else {
+                //aqui se despausa la cancion
                 setIsPlayingSong(true);
-                setCurrentAudioTime(null);
+                if(!currentSongIsSound) {
+                  setCurrentAudioTime(null);
+                }
                 setCurrentMusic({ songs, playlist, song: songs[index] });
               }
-              setIsPlaying(false);
+
             }}
             key={index}
           >
