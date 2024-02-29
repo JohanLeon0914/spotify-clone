@@ -21,7 +21,6 @@ const PlaylistTable = ({ songs, playlist }) => {
     setIsPlayingSong,
     setCurrentMusic,
     currentMusic,
-    setIsPlaying,
     setIsSongEnded,
     isSongEnded,
     isPlaying,
@@ -64,16 +63,13 @@ const PlaylistTable = ({ songs, playlist }) => {
   }, [isSongEnded]);
 
   const selectSongOfTheTable = (song, index) => {
-    // Check if the selected song is currently playing
-    const currentSongIsPlaying = song.id === currentMusic.song?.id;
-  
     // If a song is currently playing
     if (isPlayingSong) {
       // Pause the playback
       setIsPlayingSong(false);
   
       // If the user selects a different song to play, reset the playback time and selects the new song
-      if (!currentSongIsPlaying) {
+      if (!isCurrentSongPlayed(song)) {
         setIsPlayingSong(true);
         setCurrentAudioTime(null);
         setCurrentMusic({ songs, playlist, song: songs[index] });
@@ -89,7 +85,7 @@ const PlaylistTable = ({ songs, playlist }) => {
       setCurrentMusic({ songs, playlist, song: songs[index] });
   
       // If the user selects a different song, reset the playback time
-      if (!currentSongIsPlaying) {
+      if (!isCurrentSongPlayed(song)) {
         setCurrentAudioTime(null);
       } 
       
