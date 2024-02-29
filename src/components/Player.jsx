@@ -111,7 +111,7 @@ const CurrentSong = ({ image, title, artists }) => {
   );
 };
 
-const SongControl = ({ audio }) => {
+const SongControl = ({ audio, song }) => {
   const { setIsSongEnded } = usePlayerStore((state) => state);
   const [currentTime, setCurrentTime] = useState(0);
   const duration = audio?.current?.duration ?? 0;
@@ -141,27 +141,39 @@ const SongControl = ({ audio }) => {
   };
 
   return (
-    <div className="md:flex md:flex-row gap-x-3 text-xs pt-2">
-      <span className="opacity-50 w-12 hidden md:block">
-        {duration ? formatTime(duration) : "0:00"}
-      </span>
+    <div className="md:flex md:flex-row gap-x-3 text-xs pt-2 md:ml-4">
+      <span className="hidden md:block opacity-50 w-12 text-right">
+            {formatTime(currentTime)}
+          </span>
       <Slider
         value={[currentTime]}
         max={audio?.current?.duration ?? 0}
         min={0}
-        className="w-[355px] md:w-[500px]"
+        className="w-[360px] md:w-[500px]"
         onValueChange={(value) => {
           const [newCurrentTime] = value;
+          if (!song) return;
           audio.current.currentTime = newCurrentTime;
         }}
       />
-      <span className="opacity-50 w-12 text-right">
-        {formatTime(currentTime)}
-      </span>
 
-      <span className="opacity-50 w-12 ml-[304px] md:hidden">
+      <span className="opacity-50 w-12 hidden md:block">
         {duration ? formatTime(duration) : "0:00"}
       </span>
+
+      <div className="flex md:hidden gap-[302px] mt-1.5">
+        <div className="min-w-8">
+          <span className="opacity-50 w-12 text-right">
+            {formatTime(currentTime)}
+          </span>
+        </div>
+
+        <div>
+          <span className="opacity-50 w-12 md:hidden">
+            {duration ? formatTime(duration) : "0:00"}
+          </span>
+        </div>
+      </div>
     </div>
   );
 };
@@ -303,25 +315,20 @@ export function Player() {
       <div className="flex flex-col items-center gap-2">
         <div className="flex flex-col items-center gap-4 justify-center">
           <div className="flex justify-center md:mt-2">
-            <SongControl audio={audioRef} />
+            <SongControl audio={audioRef} song={currentMusic.song} />
           </div>
 
-          {currentSong && (
-            <div className="flex flex-row gap-x-9">
-              <button onClick={SelectPrevSong}>
-                <PrevIcon />
-              </button>
-              <button
-                className="bg-white rounded-full p-4"
-                onClick={handleClick}
-              >
-                {!isPlayingSong ? <Play /> : <Pause />}
-              </button>
-              <button onClick={SelectNextSong}>
-                <NextIcon />
-              </button>
-            </div>
-          )}
+          <div className="flex flex-row gap-x-9">
+            <button onClick={SelectPrevSong}>
+              <PrevIcon />
+            </button>
+            <button className="bg-white rounded-full p-4" onClick={handleClick}>
+              {!isPlayingSong ? <Play /> : <Pause />}
+            </button>
+            <button onClick={SelectNextSong}>
+              <NextIcon />
+            </button>
+          </div>
 
           <audio ref={audioRef} />
         </div>
