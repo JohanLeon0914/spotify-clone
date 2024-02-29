@@ -83,7 +83,7 @@ export const allPlaylists = [
 ]
 
 export interface Song {
-  id: number;
+  id: number | string;
   albumId: number;
   title: string;
   image: string;
@@ -286,8 +286,8 @@ export const songs: Song[] = [
   {
     "id": 2,
     "albumId": 5,
-    "title": "「ひぃふぅみぃ夜 ーわたげのことー」wasurene “HiFuMii-YO”",
-    "image": "https://i.ytimg.com/vi/AjKETjOQpQg/maxresdefault.jpg",
+    "title": "ひぃふぅみぃ夜 ーわたげのこと wasurene “HiFuMii-YO”",
+    "image": "https://images.genius.com/bee7bb361f5375742bafbd57a08f69c9.630x630x1.jpg",
     "artists": ["HiFuMii-YO"],
     "album": "Omaña Playlist",
     "duration": "2:53"
@@ -367,7 +367,7 @@ export const songs: Song[] = [
   {
     "id": 11,
     "albumId": 5,
-    "title": "Awesome City Club -「SUNNY GIRL",
+    "title": "Awesome City Club -「SUNNY GIRL]",
     "image": "https://i.scdn.co/image/ab67616d0000b27364831e6a63beaeff1ed2b0a8",
     "artists": ["Awesome City Club"],
     "album": "Omaña Playlist",
@@ -403,8 +403,8 @@ export const songs: Song[] = [
   {
     "id": 1,
     "albumId": 6,
-    "title": "ひぃふぅみぃ夜 ーわたげのことー」wasurene “HiFuMii-YO”",
-    "image": "https://i.ytimg.com/vi/AjKETjOQpQg/maxresdefault.jpg",
+    "title": "wasurene “HiFuMii-YO”",
+    "image": "https://images.genius.com/bee7bb361f5375742bafbd57a08f69c9.630x630x1.jpg",
     "artists": ["HiFuMii-YO"],
     "album": "My Mix",
     "duration": "2:53",
@@ -449,7 +449,7 @@ export const songs: Song[] = [
     "id": 6,
     "albumId": 6,
     "title": "Legends never die",
-    "image": "https://pics.filmaffinity.com/League_of_Legends_Legends_Never_Die_Vaideo_musical-172041920-large.jpg",
+    "image": "https://i.scdn.co/image/ab67616d0000b2731578debc0e6bb047dd20a02b",
     "artists": ["LOL"],
     "album": "My Mix",
     "duration": "3:55"
@@ -498,5 +498,113 @@ export const songs: Song[] = [
     "artists": ["NewJeans"],
     "album": "My Mix",
     "duration": "3:41"
+  },
+  {
+    "id": "Fire __ Water (mashup)",
+    "albumId": 6,
+    "title": "Fire __ Water (mashup)",
+    "image": "https://upload.wikimedia.org/wikipedia/en/c/c7/Blood_Water_Grandson.jpg",
+    "artists": ["Grandson", "Imagine Dragons"],
+    "album": "My Mix",
+    "duration": "3:46"
+  },
+  {
+    "id": "The Greatest - SIA  Sped Up - Tiktok Version",
+    "albumId": 6,
+    "title": "The Greatest - SIA Sped Up",
+    "image": "https://pics.filmaffinity.com/Sia_The_Greatest_Music_Video-938224633-large.jpg",
+    "artists": ["Sia",],
+    "album": "My Mix",
+    "duration": "2:57"
+  },
+  {
+    "id": "SINAMOTO - YOUNG GIRL A (SLOWED  REVERB) GOHAN FUTURO EDIT",
+    "albumId": 6,
+    "title": "SINAMOTO - YOUNG GIRL A (SLOWED  REVERB) GOHAN FUTURO EDIT",
+    "image": "https://i.scdn.co/image/ab67616d00001e022b8ad0729c8d7a6570642ad5",
+    "artists": ["SINAMOTO",],
+    "album": "My Mix",
+    "duration": "4:44"
+  },
+  {
+    "id": "League of legends - Warriors (Lyrics) feat. Imagine Dragons",
+    "albumId": 6,
+    "title": "League of legends - Warriors",
+    "image": "https://i.scdn.co/image/ab67616d0000b273f8fa082806184fcb032d8e0a",
+    "artists": ["Imagine Dragons",],
+    "album": "My Mix",
+    "duration": "2:49"
+  },
+  {
+    "id": "royalty - egzod (sped up_tiktok song)",
+    "albumId": 6,
+    "title": "royalty - egzod (sped up song)",
+    "image": "https://cdns-images.dzcdn.net/images/cover/af13c95019e53b3e259163c95e679785/500x500.jpg",
+    "artists": ["Royalty",],
+    "album": "My Mix",
+    "duration": "3:03"
+  },
+  {
+    "id": "Hey Mama - David Guetta ft Nicki Minaj- Bebe Rexha- Afrojack [Vietsub + Lyrics]",
+    "albumId": 6,
+    "title": "Hey Mama - David Guetta ft Nicki Minaj",
+    "image": "https://m.media-amazon.com/images/M/MV5BN2Y3YTRkOWEtNGVjZS00OTZkLWE2NzctZjFhNjg3MzExMGRhXkEyXkFqcGdeQXVyNjE0ODc0MDc@._V1_.jpg",
+    "artists": ["David Guetta", "Nicki Minaj"],
+    "album": "My Mix",
+    "duration": "3:12"
+  },
+  {
+    "id": "Aaron Smith - Dancin (KRONO Remix) - Lyrics",
+    "albumId": 6,
+    "title": "Aaron Smith - Dancin (KRONO Remix)",
+    "image": "https://lastfm.freetls.fastly.net/i/u/ar0/04b8b1c39b2a39875d4c7936c33f845e.jpg",
+    "artists": ["Aaron Smith ", "KRONO"],
+    "album": "My Mix",
+    "duration": "3:14"
+  },
+  {
+    "id": "Lil Nas X - MONTERO (Call Me By Your Name) (Lyrics)",
+    "albumId": 6,
+    "title": "Lil Nas X - MONTERO (Call Me By Your Name)",
+    "image": "https://cdns-images.dzcdn.net/images/cover/72f18412d9c36fe32cdc460a5e34be80/500x500.jpg",
+    "artists": ["Lil Nas", "MONTERO"],
+    "album": "My Mix",
+    "duration": "2:18"
+  },
+  {
+    "id": "Alan Walker - Sing Me To Sleep",
+    "albumId": 6,
+    "title": "Alan Walker - Sing Me To Sleep",
+    "image": "https://i1.sndcdn.com/artworks-000208554311-mi95hd-t500x500.jpg",
+    "artists": ["Alan Walker",],
+    "album": "My Mix",
+    "duration": "3:11"
+  },
+  {
+    "id": "Billie Eilish, Khalid - lovely (Official Music Video)",
+    "albumId": 6,
+    "title": "Billie Eilish, Khalid - lovely",
+    "image": "https://i1.sndcdn.com/artworks-000344377479-prcevs-t500x500.jpg",
+    "artists": ["Billie Eilish", "Khalid"],
+    "album": "My Mix",
+    "duration": "3:20"
+  },
+  {
+    "id": "Imagine Dragons - ENEMY BONES __ Mashup",
+    "albumId": 6,
+    "title": "Imagine Dragons - ENEMY BONES",
+    "image": "https://upload.wikimedia.org/wikipedia/en/thumb/b/bb/Imagine_Dragons_Bones_cover.jpg/220px-Imagine_Dragons_Bones_cover.jpg",
+    "artists": ["Imagine Dragons",],
+    "album": "My Mix",
+    "duration": "2:32"
+  },
+  {
+    "id": "Imagine Dragons x JID - Enemy (Lyrics)",
+    "albumId": 6,
+    "title": "Imagine Dragons x JID - Enemy",
+    "image": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/0cd265130636097.61842df318d10.jpg",
+    "artists": ["Imagine Dragons", "JID"],
+    "album": "My Mix",
+    "duration": "2:50"
   },
 ]
