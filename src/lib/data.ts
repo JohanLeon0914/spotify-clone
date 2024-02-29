@@ -545,7 +545,7 @@ export const songs: Song[] = [
     "duration": "3:03"
   },
   {
-    "id": "Hey Mama - David Guetta ft Nicki Minaj- Bebe Rexha- Afrojack [Vietsub + Lyrics]",
+    "id": "David Guetta - Hey Mama (Official Video) ft Nicki Minaj, Bebe Rexha & Afrojack",
     "albumId": 6,
     "title": "Hey Mama - David Guetta ft Nicki Minaj",
     "image": "https://m.media-amazon.com/images/M/MV5BN2Y3YTRkOWEtNGVjZS00OTZkLWE2NzctZjFhNjg3MzExMGRhXkEyXkFqcGdeQXVyNjE0ODc0MDc@._V1_.jpg",
