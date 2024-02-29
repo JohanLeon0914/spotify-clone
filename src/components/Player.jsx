@@ -62,8 +62,8 @@ export const Volume = () => (
 export const NextIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="26"
-    height="26"
+    width="36"
+    height="36"
     viewBox="0 0 24 24"
     stroke="#fff"
     fill="none"
@@ -77,8 +77,8 @@ export const NextIcon = () => (
 export const PrevIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="26"
-    height="26"
+    width="36"
+    height="36"
     viewBox="0 0 24 24"
     stroke="#fff"
     fill="none"
@@ -139,23 +139,25 @@ const SongControl = ({ audio }) => {
   };
 
   return (
-    <div className="flex gap-x-3 text-xs pt-2">
-      <span className="opacity-50 w-12 text-right">
-        {formatTime(currentTime)}
+    <div className="md:flex md:flex-row gap-x-3 text-xs pt-2">
+      <span className="opacity-50 w-12 hidden md:block">
+        {duration ? formatTime(duration) : "0:00"}
       </span>
-
       <Slider
         value={[currentTime]}
         max={audio?.current?.duration ?? 0}
         min={0}
-        className="w-[200px] md:w-[500px]"
+        className="w-[340px] md:w-[500px]"
         onValueChange={(value) => {
           const [newCurrentTime] = value;
           audio.current.currentTime = newCurrentTime;
         }}
       />
+      <span className="opacity-50 w-12 text-right">
+        {formatTime(currentTime)}
+      </span>
 
-      <span className="opacity-50 w-12">
+      <span className="opacity-50 w-12 ml-[290px] md:hidden">
         {duration ? formatTime(duration) : "0:00"}
       </span>
     </div>
@@ -299,24 +301,24 @@ export function Player() {
       <div className="flex flex-col items-center gap-4">
         <div className="flex flex-col items-center gap-2 justify-center">
           {currentSong && (
-            <button
-              className="bg-white rounded-full p-2 md:mt-2"
-              onClick={handleClick}
-            >
-              {!isPlayingSong ? <Play /> : <Pause />}
-            </button>
+            <div className="flex flex-row gap-6">
+              <button onClick={SelectPrevSong}>
+                <PrevIcon />
+              </button>
+              <button
+                className="bg-white rounded-full p-4 md:mt-2"
+                onClick={handleClick}
+              >
+                {!isPlayingSong ? <Play /> : <Pause />}
+              </button>
+              <button onClick={SelectNextSong}>
+                <NextIcon />
+              </button>
+            </div>
           )}
 
           <div className="flex justify-center">
-            <button className="ml-2" onClick={SelectPrevSong}>
-              <PrevIcon />
-            </button>
-
             <SongControl audio={audioRef} />
-
-            <button className="mr-2" onClick={SelectNextSong}>
-              <NextIcon />
-            </button>
           </div>
           <audio ref={audioRef} />
         </div>
