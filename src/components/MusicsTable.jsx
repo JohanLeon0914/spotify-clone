@@ -32,7 +32,7 @@ const PlaylistTable = ({ songs, playlist }) => {
   const isCurrentSongPlayed = (song) => {
     return (
       song.id === currentMusic.song?.id &&
-      playlist.id === song.albumId.toString()
+      playlist.id === currentMusic.playlist.id
     );
   };
 
