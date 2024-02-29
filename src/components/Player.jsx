@@ -97,7 +97,7 @@ const CurrentSong = ({ image, title, artists }) => {
           overflow-hidden
         `}
     >
-      <picture className="w-16 h-16 bg-zinc-800 rounded-md shadow-lg overflow-hidden">
+      <picture className="w-16 h-16 bg-zinc-800 rounded-md shadow-lg overflow-hidden mb-2">
         <img src={image} alt={title} />
       </picture>
 
@@ -255,10 +255,10 @@ export function Player() {
     const currentIndex = songs.findIndex((s) => s.id === song.id);
     let newIndex;
     if (currentIndex === 0) {
-      // Si es la primera canción, selecciona la última canción
+      // if is the first song on the playlist, select the last one
       newIndex = songs.length - 1;
     } else {
-      // De lo contrario, selecciona la canción anterior
+      // else, select the previous
       newIndex = currentIndex - 1;
     }
 
@@ -277,10 +277,10 @@ export function Player() {
 
     let newIndex;
     if (currentIndex === songs.length - 1) {
-      // Si es la última canción, selecciona la primera canción
+      // if is the last song on the playlist, select the first one
       newIndex = 0;
     } else {
-      // De lo contrario, selecciona la siguiente canción
+      // else, select the previous
       newIndex = currentIndex + 1;
     }
 
@@ -291,8 +291,8 @@ export function Player() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-between w-full px-4 z-50 md:items-center mx-auto">
-      <div className="max-w-[300px] md:min-w-[300px]">
+    <div className="flex flex-col md:flex-row justify-between w-full px-4 z-50 md:items-center mx-auto gap-4">
+      <div className="ml-2 max-w-[300px] md:min-w-[300px] mb-2">
         <CurrentSong {...currentMusic.song} />
       </div>
 
