@@ -607,4 +607,13 @@ export const songs: Song[] = [
     "album": "My Mix",
     "duration": "2:50"
   },
+  {
+    "id": "David Kushner - Daylight",
+    "albumId": 6,
+    "title": "David Kushner - Daylight",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/29/b8/41/29b84156-2edb-692d-329b-8faf1d076054/23SYMIM06332.rgb.jpg/1200x1200bb.jpg",
+    "artists": ["Imagine Dragons", "JID"],
+    "album": "My Mix",
+    "duration": "2:50"
+  },
 ]
