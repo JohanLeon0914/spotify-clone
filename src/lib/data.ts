@@ -38,24 +38,6 @@ export const playlists: Playlist[] = [
     artists: ["Tenno", "xander", "Team Astro"],
   },
   {
-    id: '4',
-    albumId: 4,
-    title: "Blue Note Study Time",
-    color: colors.blue,
-    cover:
-      "https://f4.bcbits.com/img/a1962013209_16.jpg",
-    artists: ["Raimu", "Yasumu"],
-  },
-  {
-    id: '5',
-    albumId: 5,
-    title: "Omaña playlist",
-    color: colors.blue,
-    cover:
-      "https://i.scdn.co/image/ab67616d00001e02303d8545fce8302841c39859",
-    artists: ["Raimu", "Yasumu"],
-  },
-  {
     id: '6',
     albumId: 6,
     title: "My Mix",
