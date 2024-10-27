@@ -243,15 +243,18 @@ export function Player() {
   }, [volume]);
 
   useEffect(() => {
-    const { song, playlist } = currentMusic;
+    const { song } = currentMusic;
     if (song) {
       setCurrentSong(song);
-      const src = `/music/${playlist?.id}/${song.id}.mp3`;
+      const src = song.href; 
+      console.log(src)
       audioRef.current.src = src;
       audioRef.current.volume = volume;
+  
       if (currentAudioTime) {
         audioRef.current.currentTime = currentAudioTime;
       }
+  
       setCurrentAudioTime(null);
       audioRef.current.play();
     }
