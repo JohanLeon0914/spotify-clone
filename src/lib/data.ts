@@ -57,7 +57,7 @@ export const songs: Song[] = [
     "artists": ["HiFuMii-YO"],
     "album": "My Mix",
     "duration": "2:53",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/1.mp3"	
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/1.mp3"	
   },
   {
     "id": 2,
@@ -67,7 +67,7 @@ export const songs: Song[] = [
     "artists": ["Mako"],
     "album": "My Mix",
     "duration": "2:53",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/2.mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/2.mp3"
   },
   {
     "id": 3,
@@ -77,7 +77,7 @@ export const songs: Song[] = [
     "artists": ["Kenshi Yonezu"],
     "album": "My Mix",
     "duration": "3:47",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/3.mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/3.mp3"
   },
   {
     "id": 4,
@@ -87,7 +87,7 @@ export const songs: Song[] = [
     "artists": ["Timmy Trumpet"],
     "album": "My Mix",
     "duration": "2:34",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/4.mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/4.mp3"
   },
   {
     "id": 5,
@@ -97,7 +97,7 @@ export const songs: Song[] = [
     "artists": ["BoyWithUke"],
     "album": "My Mix",
     "duration": "3:00",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/5.mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/5.mp3"
   },
   {
     "id": 6,
@@ -107,7 +107,7 @@ export const songs: Song[] = [
     "artists": ["LOL"],
     "album": "My Mix",
     "duration": "3:55",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/6.mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/6.mp3"
   },
   {
     "id": 7,
@@ -117,7 +117,7 @@ export const songs: Song[] = [
     "artists": ["Ghost"],
     "album": "My Mix",
     "duration": "4:04",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/7.mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/7.mp3"
   },
   {
     "id": 8,
@@ -127,7 +127,7 @@ export const songs: Song[] = [
     "artists": ["Tamashi tai"],
     "album": "My Mix",
     "duration": "4:55",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/8.mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/8.mp3"
   },
   {
     "id": 9,
@@ -137,7 +137,7 @@ export const songs: Song[] = [
     "artists": ["David Guetta", "Bebe Rexha"],
     "album": "My Mix",
     "duration": "2:57",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/9.mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/9.mp3"
   },
   {
     "id": 10,
@@ -147,7 +147,7 @@ export const songs: Song[] = [
     "artists": ["R3HAB"],
     "album": "My Mix",
     "duration": "2:56",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/10.mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/10.mp3"
   },
   {
     "id": 11,
@@ -157,7 +157,7 @@ export const songs: Song[] = [
     "artists": ["NewJeans"],
     "album": "My Mix",
     "duration": "3:41",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/11.mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/11.mp3"
   },
   {
     "id": "Fire __ Water (mashup)",
@@ -167,7 +167,7 @@ export const songs: Song[] = [
     "artists": ["Grandson", "Imagine Dragons"],
     "album": "My Mix",
     "duration": "3:46",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/Fire+__+Water+(mashup).mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/Fire+__+Water+(mashup).mp3"
   },
   {
     "id": "The Greatest - SIA  Sped Up - Tiktok Version",
@@ -177,7 +177,7 @@ export const songs: Song[] = [
     "artists": ["Sia",],
     "album": "My Mix",
     "duration": "2:57",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/The+Greatest+-+SIA++Sped+Up+-+Tiktok+Version.mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/The+Greatest+-+SIA++Sped+Up+-+Tiktok+Version.mp3"
   },
   {
     "id": "SINAMOTO - YOUNG GIRL A (SLOWED  REVERB) GOHAN FUTURO EDIT",
@@ -187,7 +187,7 @@ export const songs: Song[] = [
     "artists": ["SINAMOTO",],
     "album": "My Mix",
     "duration": "4:44",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/SINAMOTO+-+YOUNG+GIRL+A+(SLOWED++REVERB)+GOHAN+FUTURO+EDIT.mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/SINAMOTO+-+YOUNG+GIRL+A+(SLOWED++REVERB)+GOHAN+FUTURO+EDIT.mp3"
   },
   {
     "id": "League of legends - Warriors (Lyrics) feat. Imagine Dragons",
@@ -197,7 +197,7 @@ export const songs: Song[] = [
     "artists": ["Imagine Dragons",],
     "album": "My Mix",
     "duration": "2:49",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/League+of+legends+-+Warriors+(Lyrics)+feat.+Imagine+Dragons.mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/League+of+legends+-+Warriors+(Lyrics)+feat.+Imagine+Dragons.mp3"
   },
   {
     "id": "royalty - egzod (sped up_tiktok song)",
@@ -207,7 +207,7 @@ export const songs: Song[] = [
     "artists": ["Royalty",],
     "album": "My Mix",
     "duration": "3:03",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/royalty+-+egzod+(sped+up_tiktok+song).mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/royalty+-+egzod+(sped+up_tiktok+song).mp3"
   },
   {
     "id": "David Guetta - Hey Mama (Official Video) ft Nicki Minaj, Bebe Rexha & Afrojack",
@@ -217,7 +217,7 @@ export const songs: Song[] = [
     "artists": ["David Guetta", "Nicki Minaj"],
     "album": "My Mix",
     "duration": "3:19",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/David+Guetta+-+Hey+Mama+(Official+Video)+ft+Nicki+Minaj%2C+Bebe+Rexha+%26+Afrojack.mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/David+Guetta+-+Hey+Mama+(Official+Video)+ft+Nicki+Minaj%2C+Bebe+Rexha+%26+Afrojack.mp3"
   },
   {
     "id": "Aaron Smith - Dancin (KRONO Remix) - Lyrics",
@@ -227,17 +227,17 @@ export const songs: Song[] = [
     "artists": ["Aaron Smith ", "KRONO"],
     "album": "My Mix",
     "duration": "3:14",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/Aaron+Smith+-+Dancin+(KRONO+Remix)+-+Lyrics.mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/Aaron+Smith+-+Dancin+(KRONO+Remix)+-+Lyrics.mp3"
   },
   {
     "id": "Lil Nas X - MONTERO (Call Me By Your Name) (Lyrics)",
     "albumId": 6,
     "title": "Lil Nas X - MONTERO (Call Me By Your Name)",
-    "image": "https://cdns-images.dzcdn.net/images/cover/72f18412d9c36fe32cdc460a5e34be80/500x500.jpg",
+    "image": "https://cdns-images.dzcdn.net/images/cover/72f18412d9c36fe32cdc460a5e34be80/MyMix/500x500.jpg",
     "artists": ["Lil Nas", "MONTERO"],
     "album": "My Mix",
     "duration": "2:18",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/Lil+Nas+X+-+MONTERO+(Call+Me+By+Your+Name)+(Lyrics).mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/Lil+Nas+X+-+MONTERO+(Call+Me+By+Your+Name)+(Lyrics).mp3"
   },
   {
     "id": "Alan Walker - Sing Me To Sleep",
@@ -247,7 +247,7 @@ export const songs: Song[] = [
     "artists": ["Alan Walker",],
     "album": "My Mix",
     "duration": "3:11",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/Alan+Walker+-+Sing+Me+To+Sleep.mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/Alan+Walker+-+Sing+Me+To+Sleep.mp3"
   },
   {
     "id": "Billie Eilish, Khalid - lovely (Official Music Video)",
@@ -257,7 +257,7 @@ export const songs: Song[] = [
     "artists": ["Billie Eilish", "Khalid"],
     "album": "My Mix",
     "duration": "3:20",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/Billie+Eilish%2C+Khalid+-+lovely+(Official+Music+Video).mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/Billie+Eilish%2C+Khalid+-+lovely+(Official+Music+Video).mp3"
   },
   {
     "id": "Imagine Dragons - ENEMY BONES __ Mashup",
@@ -267,7 +267,7 @@ export const songs: Song[] = [
     "artists": ["Imagine Dragons",],
     "album": "My Mix",
     "duration": "2:32",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/Imagine+Dragons+-+ENEMY+BONES+__+Mashup.mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/Imagine+Dragons+-+ENEMY+BONES+__+Mashup.mp3"
   },
   {
     "id": "Imagine Dragons x JID - Enemy (Lyrics)",
@@ -277,7 +277,7 @@ export const songs: Song[] = [
     "artists": ["Imagine Dragons", "JID"],
     "album": "My Mix",
     "duration": "2:50",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/Imagine+Dragons+x+JID+-+Enemy+(Lyrics).mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/Imagine+Dragons+x+JID+-+Enemy+(Lyrics).mp3"
   },
   {
     "id": "David Kushner - Daylight",
@@ -287,6 +287,6 @@ export const songs: Song[] = [
     "artists": ["Imagine Dragons", "JID"],
     "album": "My Mix",
     "duration": "2:50",
-    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/David+Kushner+-+Daylight.mp3"
+    "href": "https://cdk-hnb659fds-assets-887957688366-us-west-2.s3.us-west-2.amazonaws.com/MyMix/David+Kushner+-+Daylight.mp3"
   },
 ]
