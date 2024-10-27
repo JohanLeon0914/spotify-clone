@@ -233,7 +233,7 @@ export const songs: Song[] = [
     "id": "Lil Nas X - MONTERO (Call Me By Your Name) (Lyrics)",
     "albumId": 6,
     "title": "Lil Nas X - MONTERO (Call Me By Your Name)",
-    "image": "https://cdns-images.dzcdn.net/images/cover/72f18412d9c36fe32cdc460a5e34be80/MyMix/500x500.jpg",
+    "image": "https://cdns-images.dzcdn.net/images/cover/72f18412d9c36fe32cdc460a5e34be80/500x500.jpg",
     "artists": ["Lil Nas", "MONTERO"],
     "album": "My Mix",
     "duration": "2:18",
