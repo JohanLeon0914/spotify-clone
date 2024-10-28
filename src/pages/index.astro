@@ -1,12 +1,15 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import PlayListItemCard from "@/components/PlayListItemCard.astro";
-import { playlists } from "@/lib/data";
-import Greating from '@/components/Greating.svelte'
+import Greating from '@/components/Greating.svelte';
+import { fetchPlaylists } from "@/lib/data";
+
+// Llamada a la función asíncrona para obtener las playlists
+const playlists = await fetchPlaylists();
 ---
 
 <Layout title="Spotify clone">
-	<div
+  <div
     id="playlist-container"
     class="relative transition-all duration-1000 bg-green-600"
   >
@@ -15,7 +18,9 @@ import Greating from '@/components/Greating.svelte'
     <div class="relative z-10 px-6 pt-10">
       <Greating />
       <div class="flex flex-wrap mt-6 gap-4 pb-5">
-        {playlists.map((playlist) => <PlayListItemCard playlist={playlist} />)}
+        {playlists.map((playlist) => (
+          <PlayListItemCard playlist={playlist} />
+        ))}
       </div>
 
       <div

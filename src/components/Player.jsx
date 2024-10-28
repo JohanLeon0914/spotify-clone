@@ -247,7 +247,6 @@ export function Player() {
     if (song) {
       setCurrentSong(song);
       const src = song.href; 
-      console.log(src)
       audioRef.current.src = src;
       audioRef.current.volume = volume;
   

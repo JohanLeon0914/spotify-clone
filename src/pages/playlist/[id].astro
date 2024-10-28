@@ -3,23 +3,22 @@ import MusicsTable from "../../components/MusicsTable";
 import { CardPlayButton } from "../../components/CardPlayButton";
 import { RandomPlayButton } from "../../components/RandomPlayButton";
 import Layout from "../../layouts/Layout.astro";
-import { allPlaylists, songs } from "../../lib/data";
 import LeftArrowIcon from "@/icons/LeftArrow.astro";
+import { fetchPlaylistById, fetchSongsByAlbumId } from "../../lib/data";
 
 const { id } = Astro.params;
 
-const playlist = allPlaylists.find((playlist) => playlist.id === id);
+if(!id) return
 
-const playListSongs = songs.filter(
-  (song) => song.albumId === playlist?.albumId
-);
+const playlist = await fetchPlaylistById(id);
+const playListSongs = playlist ? await fetchSongsByAlbumId(playlist.albumId) : [];
 ---
 
 <Layout title="Spotify clone">
   <div
     id="playlist-container"
     class="relative flex flex-col h-full bg-zinc-900 overflow-x-hidden"
-    transition:name=`playlist ${id} box`
+    transition:name={`playlist ${id} box`}
   >
     <header class="flex flex-col md:flex-row gap-8 px-6 mt-12">
       <div class="relative p-2">
@@ -28,7 +27,6 @@ const playListSongs = songs.filter(
         </a>
       </div>
     
-
       <picture class="aspect-square w-52 h-52 flex-none">
         <img
           src={playlist?.cover}
@@ -73,7 +71,6 @@ const playListSongs = songs.filter(
       <CardPlayButton client:load id={id} size="large" />
       <RandomPlayButton client:load id={id} />
     </div>
-
 
     <div class="relative z-10 px-6 pt-10"></div>
 
