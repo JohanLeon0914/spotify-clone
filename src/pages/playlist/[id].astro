@@ -5,6 +5,7 @@ import { RandomPlayButton } from "../../components/RandomPlayButton";
 import Layout from "../../layouts/Layout.astro";
 import LeftArrowIcon from "@/icons/LeftArrow.astro";
 import { fetchPlaylistById, fetchSongsByAlbumId } from "../../lib/data";
+import { AddSongButton } from "@/components/AddSongButton.jsx";
 
 const { id } = Astro.params;
 
@@ -70,6 +71,7 @@ const playListSongs = playlist ? await fetchSongsByAlbumId(playlist.id) : [];
     <div class="pl-6 pt-6">
       <CardPlayButton client:load id={id} size="large" />
       <RandomPlayButton client:load id={id} />
+      <AddSongButton client:load id={id} />
     </div>
 
     <div class="relative z-10 px-6 pt-10"></div>

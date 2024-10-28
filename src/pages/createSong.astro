@@ -1,10 +1,11 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import CreateSongForm from "@/components/CreateSongForm";
+const id  = Astro.url.searchParams.get('id') || '';
 ---
 
 <Layout title="Create Song">
 	<div>
-        <CreateSongForm client:load />
+        <CreateSongForm client:load playlistId={id} />
   </div>
 </Layout>

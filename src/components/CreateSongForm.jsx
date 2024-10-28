@@ -5,7 +5,7 @@ import { uploadMP3 } from "../lib/s3";
 
 const db = getFirestore(firebaseApp);
 
-const CreateSongForm = () => {
+const CreateSongForm = ({ playlistId }) => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState(null);
   const [mp3File, setMp3File] = useState(null);
@@ -25,10 +25,18 @@ const CreateSongForm = () => {
         title: doc.data().title,
       }));
       setPlaylists(playlistList);
+
+      if (playlistId) {
+        const selectedPlaylist = playlistList.find((playlist) => playlist.id === playlistId);
+        if (selectedPlaylist) {
+          setAlbumId(selectedPlaylist.id);
+          setAlbumTitle(selectedPlaylist.title);
+        }
+      }
     };
 
     fetchPlaylists();
-  }, []);
+  }, [playlistId]);
 
   const handleImageChange = (e) => setImage(e.target.files[0]);
   const handleMp3Change = (e) => setMp3File(e.target.files[0]);

@@ -35,9 +35,14 @@ const playlists = await fetchAllPlaylists();
       </SideMenuItem>
 
       <!-- Renderizar playlists de Firebase -->
-      {playlists.map(playlist => (
-        <SideMenuCard playlist={playlist} />
-      ))}
+      {playlists.map((playlist) => <SideMenuCard playlist={playlist} />)}
+
+      <a
+        href="/createPlaylist"
+        class="inline-block mt-5 px-4 py-2 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition duration-200 ease-in-out shadow-md focus:outline-none focus:ring-2 focus:ring-green-500"
+      >
+        + Create playlist
+      </a>
     </ul>
   </div>
 </nav>
