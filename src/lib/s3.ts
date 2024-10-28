@@ -8,7 +8,7 @@ const s3Client = new S3Client({
   },
 });
 
-export const uploadMP3 = async (file, playlist) => {
+export const uploadMP3 = async (file: any, playlist: string) => {
   // Reemplazar espacios en el nombre de la playlist por signos de +
   const formattedPlaylist = playlist.replace(/ /g, '+');
 
