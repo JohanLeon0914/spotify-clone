@@ -58,7 +58,7 @@ const CreatePlaylistForm = () => {
 
         {/* Tematicas */}
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Tematicas (separados por comas):</label>
+          <label className="block text-gray-700 text-sm font-bold mb-2">Tematicas (separadas por comas):</label>
           <input type="text" value={artists} onChange={(e) => setArtists(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg" required disabled={loading} />
         </div>
 
