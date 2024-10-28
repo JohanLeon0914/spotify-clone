@@ -1,4 +1,5 @@
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
+import type { PutObjectCommandInput } from '@aws-sdk/client-s3'; 
 
 const s3Client = new S3Client({
   region: "us-west-2",
@@ -8,13 +9,19 @@ const s3Client = new S3Client({
   },
 });
 
-export const uploadMP3 = async (file: any, playlist: string) => {
+// Definir tipos para los parámetros de la función
+interface UploadMP3Params {
+  file: File; // Asegúrate de que `File` sea el tipo correcto que estás usando
+  playlist: string;
+}
+
+export const uploadMP3 = async ({ file, playlist }: UploadMP3Params): Promise<string> => {
   // Reemplazar espacios en el nombre de la playlist por signos de +
   const formattedPlaylist = playlist.replace(/ /g, '+');
 
-  const params = {
+  const params: PutObjectCommandInput = {
     Bucket: 'cdk-hnb659fds-assets-887957688366-us-west-2',
-    Key: `${playlist}/${file.name}`,
+    Key: `${formattedPlaylist}/${file.name}`, // Asegúrate de usar `formattedPlaylist`
     Body: file,
     ContentType: file.type,
     ACL: 'public-read',
