@@ -18,6 +18,7 @@ export const uploadMP3 = async (file, playlist) => {
     Body: file,
     ContentType: file.type,
     ACL: 'public-read',
+    ServerSideEncryption: 'AES256',
   };
 
   try {
