@@ -39,7 +39,17 @@ const CreateSongForm = ({ playlistId }) => {
   }, [playlistId]);
 
   const handleImageChange = (e) => setImage(e.target.files[0]);
-  const handleMp3Change = (e) => setMp3File(e.target.files[0]);
+  
+  const handleMp3Change = (e) => {
+    const file = e.target.files[0];
+    setMp3File(file);
+    const audio = new Audio(URL.createObjectURL(file));
+    audio.addEventListener("loadedmetadata", () => {
+      const minutes = Math.floor(audio.duration / 60);
+      const seconds = Math.floor(audio.duration % 60).toString().padStart(2, "0");
+      setDuration(`${minutes}:${seconds}`);
+    });
+  };
 
   const handleAlbumChange = (e) => {
     const selectedAlbum = playlists.find(playlist => playlist.id === e.target.value);
@@ -60,7 +70,7 @@ const CreateSongForm = ({ playlistId }) => {
         artists: artists.split(",").map(artist => artist.trim()),
         album: albumTitle,
         albumId,
-        duration,
+        duration, // Calculado automáticamente
       };
       const docRef = await addDoc(collection(db, "songs"), song);
       console.log("Documento añadido con ID:", docRef.id);
@@ -121,12 +131,6 @@ const CreateSongForm = ({ playlistId }) => {
               <option key={playlist.id} value={playlist.id}>{playlist.title}</option>
             ))}
           </select>
-        </div>
-
-        {/* Duración */}
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Duración (formato: mm:ss):</label>
-          <input type="text" value={duration} onChange={(e) => setDuration(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg" required disabled={loading} />
         </div>
 
         <button type="submit" className={`w-full py-2 px-4 rounded-lg focus:outline-none ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-green-500 hover:bg-blue-600 text-white"}`} disabled={loading}>
