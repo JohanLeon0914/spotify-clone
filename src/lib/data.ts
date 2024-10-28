@@ -6,7 +6,7 @@ export interface Playlist {
   id: string;
   albumId: string;
   title: string;
-  color: (typeof colors)[keyof typeof colors];
+  color?: (typeof colors)[keyof typeof colors];
   cover: string;
   artists: string[];
 }

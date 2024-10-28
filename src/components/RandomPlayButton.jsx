@@ -1,5 +1,4 @@
 import { usePlayerStore } from "../store/playerStore";
-import React, { useState } from "react";
 
 const RandomIconDisabled = ({ className }) => (
   <svg
