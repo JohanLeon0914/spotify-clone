@@ -54,6 +54,7 @@ const CreateSongForm = () => {
         albumId,
         duration,
       };
+      console.log(song)
       const docRef = await addDoc(collection(db, "songs"), song);
       console.log("Documento añadido con ID:", docRef.id);
     } catch (error) {
@@ -74,10 +75,9 @@ const CreateSongForm = () => {
       {loading && (
         <div className="absolute inset-0 bg-opacity-75 flex items-center justify-center z-50">
           <div className="loader border-4 border-t-4 border-t-blue-500 rounded-full w-12 h-12 animate-spin"></div>
-          <span className="ml-2 text-gray-700">Enviando...</span>
         </div>
       )}
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg" disabled={loading}>
+      <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-zinc-200 p-6 rounded-lg shadow-lg" disabled={loading}>
         {/* Título */}
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Título:</label>
@@ -119,7 +119,7 @@ const CreateSongForm = () => {
           <input type="text" value={duration} onChange={(e) => setDuration(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg" required disabled={loading} />
         </div>
 
-        <button type="submit" className={`w-full py-2 px-4 rounded-lg focus:outline-none ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600 text-white"}`} disabled={loading}>
+        <button type="submit" className={`w-full py-2 px-4 rounded-lg focus:outline-none ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-green-500 hover:bg-blue-600 text-white"}`} disabled={loading}>
           {loading ? "Enviando..." : "Enviar"}
         </button>
       </form>
