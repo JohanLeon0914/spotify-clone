@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore/lite";
 import { firebaseApp, uploadFile } from "../lib/firebase";
-import { uploadMP3 } from "@/lib/s3";
+import { uploadMP3 } from "../lib/s3";
 
 const db = getFirestore(firebaseApp);
 
