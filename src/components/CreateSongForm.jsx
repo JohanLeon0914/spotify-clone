@@ -54,9 +54,11 @@ const CreateSongForm = () => {
         albumId,
         duration,
       };
-      console.log(song)
       const docRef = await addDoc(collection(db, "songs"), song);
       console.log("Documento añadido con ID:", docRef.id);
+
+      window.location.href = `/playlist/${albumId}`;
+      
     } catch (error) {
       console.log("Error al agregar canción:", error);
     }

@@ -10,7 +10,7 @@ export async function GET({ params, request }) {
 
   let songs = [];
   if (playlist) {
-    songs = await fetchSongsByAlbumId(playlist.albumId);
+    songs = await fetchSongsByAlbumId(playlist.id);
   }
 
   return new Response(JSON.stringify({ playlist, songs }), {

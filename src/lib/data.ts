@@ -4,7 +4,6 @@ import { colors } from "./colors";
 
 export interface Playlist {
   id: string;
-  albumId: string;
   title: string;
   color?: (typeof colors)[keyof typeof colors];
   cover: string;
@@ -29,7 +28,6 @@ export const fetchPlaylists = async (): Promise<Playlist[]> => {
   const playlistSnapshot = await getDocs(playlistsCollection);
   const playlistsData = playlistSnapshot.docs.map((doc) => ({
     id: doc.id,
-    albumId: doc.data().albumId,
     title: doc.data().title,
     color: colors.blue, 
     cover: doc.data().cover,

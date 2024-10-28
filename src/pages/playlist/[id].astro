@@ -11,7 +11,7 @@ const { id } = Astro.params;
 if(!id) return
 
 const playlist = await fetchPlaylistById(id);
-const playListSongs = playlist ? await fetchSongsByAlbumId(playlist.albumId) : [];
+const playListSongs = playlist ? await fetchSongsByAlbumId(playlist.id) : [];
 ---
 
 <Layout title="Spotify clone">
