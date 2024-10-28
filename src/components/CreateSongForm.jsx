@@ -114,7 +114,7 @@ const CreateSongForm = ({ playlistId }) => {
 
         {/* Selector de Álbum */}
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Álbum:</label>
+          <label className="block text-gray-700 text-sm font-bold mb-2">Playlist:</label>
           <select value={albumId} onChange={handleAlbumChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg" required disabled={loading}>
             <option value="">Selecciona un playlist</option>
             {playlists.map((playlist) => (
