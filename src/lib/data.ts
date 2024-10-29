@@ -29,7 +29,7 @@ export const fetchPlaylists = async (): Promise<Playlist[]> => {
   const playlistsData = playlistSnapshot.docs.map((doc) => ({
     id: doc.id,
     title: doc.data().title,
-    color: colors.blue, 
+    color: doc.data().color, 
     cover: doc.data().cover,
     artists: doc.data().artists,
   }));

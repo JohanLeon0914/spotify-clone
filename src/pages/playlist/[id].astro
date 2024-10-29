@@ -9,18 +9,26 @@ import { AddSongButton } from "@/components/AddSongButton.jsx";
 
 const { id } = Astro.params;
 
-if(!id) return
+if (!id) return;
 
 const playlist = await fetchPlaylistById(id);
 const playListSongs = playlist ? await fetchSongsByAlbumId(playlist.id) : [];
+
+// Colores de la playlist
+const colorAccent = playlist?.color?.accent || "#555555";
+const colorDark = playlist?.color?.dark || "#27272a";
 ---
 
 <Layout title="Spotify clone">
   <div
     id="playlist-container"
-    class="relative flex flex-col h-full bg-zinc-900 overflow-x-hidden"
+    style={{
+      backgroundColor: colorAccent,
+    }}
+    class="relative flex flex-col transition-all duration-1000 overflow-x-hidden"
     transition:name={`playlist ${id} box`}
   >
+
     <header class="flex flex-col md:flex-row gap-8 px-6 mt-12">
       <div class="relative p-2">
         <a href="/" class="flex ml-3 items-center justify-center absolute top-0 left-0 transform -translate-x-1/2 -translate-y-1/2">
@@ -59,8 +67,7 @@ const playListSongs = playlist ? await fetchSongsByAlbumId(playlist.id) : [];
                 <span>{playlist?.artists.join(", ")}</span>
               </div>
               <p class="mt-1">
-                <span class="text-white">{playListSongs.length} canciones</span
-                >, 3 h aproximadamente
+                <span class="text-white">{playListSongs.length} canciones</span>, 3 h aproximadamente
               </p>
             </div>
           </div>
