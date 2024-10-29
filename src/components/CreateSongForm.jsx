@@ -8,6 +8,7 @@ const db = getFirestore(firebaseApp);
 const CreateSongForm = ({ playlistId }) => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState(null);
+  const [gif, setGif] = useState(null); 
   const [mp3File, setMp3File] = useState(null);
   const [artists, setArtists] = useState("");
   const [albumId, setAlbumId] = useState("");
@@ -40,6 +41,8 @@ const CreateSongForm = ({ playlistId }) => {
 
   const handleImageChange = (e) => setImage(e.target.files[0]);
   
+  const handleGifChange = (e) => setGif(e.target.files[0]); 
+
   const handleMp3Change = (e) => {
     const file = e.target.files[0];
     setMp3File(file);
@@ -62,15 +65,17 @@ const CreateSongForm = ({ playlistId }) => {
     setLoading(true);
     try {
       const imageUrl = await uploadFile(image);
+      const gifUrl = gif ? await uploadFile(gif) : null; 
       const mp3Url = await uploadMP3(mp3File, albumTitle);
       const song = {
         title,
         image: imageUrl,
+        gif: gifUrl, 
         href: mp3Url,
         artists: artists.split(",").map(artist => artist.trim()),
         album: albumTitle,
         albumId,
-        duration, // Calculado automáticamente
+        duration, 
       };
       const docRef = await addDoc(collection(db, "songs"), song);
       console.log("Documento añadido con ID:", docRef.id);
@@ -83,6 +88,7 @@ const CreateSongForm = ({ playlistId }) => {
     setLoading(false);
     setTitle("");
     setImage(null);
+    setGif(null); // Resetear el estado del GIF
     setMp3File(null);
     setArtists("");
     setAlbumId("");
@@ -108,6 +114,12 @@ const CreateSongForm = ({ playlistId }) => {
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Imagen de la canción:</label>
           <input type="file" accept="image/*" onChange={handleImageChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg" required disabled={loading} />
+        </div>
+
+        {/* GIF (opcional) */}
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">GIF de la canción (opcional):</label>
+          <input type="file" accept="image/gif" onChange={handleGifChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg" disabled={loading} />
         </div>
 
         {/* Archivo MP3 */}

@@ -91,7 +91,7 @@ export const PrevIcon = () => (
   </svg>
 );
 
-const CurrentSong = ({ image, title, artists }) => {
+const CurrentSong = ({ image, title, artists, gif }) => {
   return (
     <div
       className={`
@@ -100,6 +100,15 @@ const CurrentSong = ({ image, title, artists }) => {
         `}
     >
       <picture className="w-16 h-16 bg-zinc-800 rounded-md shadow-lg overflow-hidden">
+        {
+          gif && (
+            <img
+              className="w-full h-full object-cover"
+              src={gif}
+              alt={title}
+            />
+          )
+        }
         <img className="" src={image} alt={title} />
       </picture>
 
