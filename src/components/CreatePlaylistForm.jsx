@@ -259,16 +259,20 @@ const CreatePlaylistForm = ({ playlistId }) => {
               key={song.id}
               className="flex justify-between items-center mb-2"
             >
-              <span>{song.title}</span>
+              <span>
+                {song.title.length > 20
+                  ? song.title.slice(0, 20) + "..."
+                  : song.title}
+              </span>
               <div>
                 <button className="text-blue-500 mr-2">
-                  <EditIcon></EditIcon>
+                  <EditIcon />
                 </button>
                 <button
                   onClick={() => handleDeleteSong(song.id)}
                   className="text-red-500"
                 >
-                  <DeleteIcon></DeleteIcon>
+                  <DeleteIcon />
                 </button>
               </div>
             </div>

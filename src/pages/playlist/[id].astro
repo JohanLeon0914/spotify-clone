@@ -91,7 +91,7 @@ const colorAccent = playlist?.color?.accent || "#555555";
     </div>
 
     <section class="p-6">
-      <MusicsTable client:load songs={playListSongs} playlist={playlist} />
+      <MusicsTable client:only="react" songs={playListSongs} playlist={playlist} />
     </section>
   </div>
 </Layout>

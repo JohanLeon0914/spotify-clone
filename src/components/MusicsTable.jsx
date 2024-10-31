@@ -67,7 +67,7 @@ const PlaylistTable = ({ songs, playlist }) => {
     if (isPlayingSong) {
       // Pause the playback
       setIsPlayingSong(false);
-  
+
       // If the user selects a different song to play, reset the playback time and selects the new song
       if (!isCurrentSongPlayed(song)) {
         setIsPlayingSong(true);
@@ -83,12 +83,11 @@ const PlaylistTable = ({ songs, playlist }) => {
       setIsPlayingSong(true);
       // Set the selected song for playback
       setCurrentMusic({ songs, playlist, song: songs[index] });
-  
+
       // If the user selects a different song, reset the playback time
       if (!isCurrentSongPlayed(song)) {
         setCurrentAudioTime(null);
-      } 
-      
+      }
     }
   };
 
@@ -133,9 +132,9 @@ const PlaylistTable = ({ songs, playlist }) => {
                 <img src={song.image} alt={song.title} className="w-11 h-11" />
               </picture>
               <div className="flex flex-col">
-                <h3 className="text-white text-base font-normal overflow-hidden whitespace-nowrap md:whitespace-normal">
-                  {song.title.length > 20
-                    ? `${song.title.substring(0, 12)}...`
+                <h3 className="text-white text-base font-normal overflow-hidden md:overflow-visible whitespace-nowrap md:whitespace-normal">
+                  {song.title.length > 20 && window.innerWidth < 768
+                    ? `${song.title.substring(0, 20)}...`
                     : song.title}
                 </h3>
                 <span>{song.artists.join(", ")}</span>
