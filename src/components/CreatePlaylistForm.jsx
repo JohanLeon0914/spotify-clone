@@ -228,7 +228,7 @@ const CreatePlaylistForm = ({ playlistId }) => {
       </form>
 
       {/* Listado de canciones */}
-      {songs.length && (
+      {songs.length > 0 && (
         <div className="mt-6 max-w-md mx-auto bg-zinc-200 p-6 rounded-lg shadow-lg">
           <h2 className="text-lg font-bold mb-4">Canciones en la Playlist</h2>
           {songs.map((song) => (
