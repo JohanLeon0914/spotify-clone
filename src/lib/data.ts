@@ -98,3 +98,29 @@ export async function fetchAllPlaylists(): Promise<Playlist[]> {
     return [];
   }
 }
+
+export async function getSongById(id: string): Promise<Song | null> {
+  try {
+    const docRef = doc(db, "songs", id);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      return {
+        id: docSnap.id,
+        albumId: docSnap.data().albumId,
+        title: docSnap.data().title,
+        image: docSnap.data().image,
+        artists: docSnap.data().artists,
+        album: docSnap.data().album,
+        duration: docSnap.data().duration,
+        href: docSnap.data().href || null,
+      } as Song;
+    } else {
+      console.error("No se encontró la canción con ID:", id);
+      return null;
+    }
+  } catch (error) {
+    console.error("Error al obtener la canción:", error);
+    return null;
+  }
+}
