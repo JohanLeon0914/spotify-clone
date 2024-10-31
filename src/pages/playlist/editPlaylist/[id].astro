@@ -1,0 +1,20 @@
+---
+import CreatePlaylistForm from "@/components/CreatePlaylistForm";
+import Layout from "@/layouts/Layout.astro";
+import { fetchPlaylistById, fetchSongsByAlbumId } from "@/lib/data";
+
+const { id } = Astro.params;
+
+if (!id) return;
+
+const playlist = await fetchPlaylistById(id);
+const playListSongs = playlist ? await fetchSongsByAlbumId(playlist.id) : [];
+
+const colorAccent = playlist?.color?.accent || "#555555";
+---
+
+<Layout title="Edit Playlist">
+	<div>
+        <CreatePlaylistForm client:load playlistId={id}/>
+  </div>
+</Layout>

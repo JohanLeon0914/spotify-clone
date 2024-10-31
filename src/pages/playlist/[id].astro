@@ -6,6 +6,8 @@ import Layout from "../../layouts/Layout.astro";
 import LeftArrowIcon from "@/icons/LeftArrow.astro";
 import { fetchPlaylistById, fetchSongsByAlbumId } from "../../lib/data";
 import { AddSongButton } from "@/components/AddSongButton.jsx";
+import { EditePlaylistButton } from "@/components/EditePlaylistButton";
+import { DeletePlaylistButton } from "@/components/DeletePlaylistButton";
 
 const { id } = Astro.params;
 
@@ -14,9 +16,7 @@ if (!id) return;
 const playlist = await fetchPlaylistById(id);
 const playListSongs = playlist ? await fetchSongsByAlbumId(playlist.id) : [];
 
-// Colores de la playlist
 const colorAccent = playlist?.color?.accent || "#555555";
-const colorDark = playlist?.color?.dark || "#27272a";
 ---
 
 <Layout title="Spotify clone">
@@ -79,6 +79,8 @@ const colorDark = playlist?.color?.dark || "#27272a";
       <CardPlayButton client:load id={id} size="large" />
       <RandomPlayButton client:load id={id} />
       <AddSongButton client:load id={id} />
+      <EditePlaylistButton client:load id={id} />
+      <DeletePlaylistButton client:load id={id} />
     </div>
 
     <div class="relative z-10 px-6 pt-10"></div>
